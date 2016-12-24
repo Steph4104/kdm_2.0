@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-    
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Kingdom Death Monster</title>
-        <meta name="description" content="An interactive getting started guide for Brackets.">
-        <link rel="stylesheet" href="style.css">
-    </head>
+<?php
+ob_start();
+session_start();
+?>
+<!doctype html>
+<html lang="en">
+<?php require_once 'head.php';?>
     <body>
         <div class="container">
             <h1>Kingdom Death: Monster</h1>  
