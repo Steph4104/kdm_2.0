@@ -11,7 +11,7 @@ session_start();
             <h1>Kingdom Death: Monster</h1>  
             <h2>Welcome to KD:M</h2>
             <p>What will be your choice?</p>
-            <p><a href="NewCampaign.html">
+            <p><a href="NewCampaign.php">
                 <button>New Game</button></a>
             </p>
             <p><button>Existing game</button></p>
