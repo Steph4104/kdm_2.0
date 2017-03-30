@@ -1,2 +1,0 @@
-# kdm
-Kingdom death monster
