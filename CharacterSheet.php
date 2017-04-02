@@ -48,6 +48,8 @@ $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVI
 
 $survivol = mysqli_fetch_assoc(mysqli_query($con, "SELECT SURVIVOL FROM survivol WHERE ID_SURVIVOR = $survivor_id"));
 
+$dead = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM dead WHERE ID_SURVIVOR = $survivor_id"));
+
 $hunt_xp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM hunt_xp WHERE ID_SURVIVOR = $survivor_id"));
 
 $courage = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM courage WHERE ID_SURVIVOR = $survivor_id"));
@@ -74,13 +76,33 @@ $understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understand
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Character sheet<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">John Snow</a></li>
-                <li><a href="#">Rob Stark</a></li>
-                <li><a href="#">Missandei</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Dead Characters</li>
-                <li><a href="#">Aria Stark</a></li>
-                <li><a href="#">Jeoffrey</a></li>
+                  <?php
+     $sql='SELECT * from survivors inner join dead on survivors.ID_SURVIVOR = dead.ID_SURVIVOR';
+
+if ($result=mysqli_query($con,$sql)){
+    
+  while ($row=mysqli_fetch_row($result)) {
+        if($row[5] == 0){
+            echo '<li><a href="'.$row[1].'">'.$row[1].'</a></li>';
+        }
+  }    
+  mysqli_free_result($result);
+}
+
+                echo'<li role="separator" class="divider"></li>
+                <li class="dropdown-header">Dead Characters</li> ' ; 
+
+if ($result=mysqli_query($con,$sql)){
+    
+  while ($row=mysqli_fetch_row($result)) {
+        if($row[5] == 1){
+            echo '<li><a href="'.$row[1].'">'.$row[1].'</a></li>';
+        }
+  }
+     
+  mysqli_free_result($result);
+}
+?>
               </ul>
             </li>
             <li><a href="#contact">Ressources</a></li>
@@ -88,6 +110,7 @@ $understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understand
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+      
 <form class="form-horizontal">
     <div class="container theme-showcase" role="main">
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -127,7 +150,7 @@ $understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understand
                 <div class="col-sm-2">
                     <div class="checkbox">
                         <label>
-                            <input type="checkbox"  value="Dead" id="CharacterInfoStatus1"> Dead
+                            <input type="checkbox"  value="Dead" id="CharacterInfoStatus1" <?php if ($dead['DEAD'] == 1){ echo 'checked';} ?>> Dead
                         </label>
                     </div>
                 </div>
