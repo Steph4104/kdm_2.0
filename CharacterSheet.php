@@ -45,6 +45,14 @@ $name = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM survivors WHERE ID_
 $sexe = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM sexe WHERE ID_SURVIVOR = $survivor_id"));
 
 $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVIVOR = $survivor_id"));
+
+$survivol = mysqli_fetch_assoc(mysqli_query($con, "SELECT SURVIVOL FROM survivol WHERE ID_SURVIVOR = $survivor_id"));
+
+$hunt_xp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM hunt_xp WHERE ID_SURVIVOR = $survivor_id"));
+
+$courage = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM courage WHERE ID_SURVIVOR = $survivor_id"));
+
+$understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understanding WHERE ID_SURVIVOR = $survivor_id"));
 ?>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -138,7 +146,7 @@ $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVI
         		 <div class="col-sm-4 ">
                  	<label for="SurvivalPts"  class="col-sm-5">Survival Points: </label>
                         <div class="col-sm-3 ">
-                            <input type="SurvivalPts" class="form-control" id="SurvivalPts" placeholder=" # " >
+                            <input type="SurvivalPts" class="form-control" id="SurvivalPts" placeholder=" # " value=<?php echo $survivol['SURVIVOL'];?> >
                         </div>
                  </div>
                   <div class="col-sm-2">
@@ -187,24 +195,22 @@ $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVI
             <div class="row">
             
 				<div class="col-sm-6">
+                    <label class="checkbox">Hunt XP:  </label>
+                    <?php
+                    for ($i = 1; $i <= $hunt_xp['XP']; $i++) {
+    
+                        echo ' <input type="checkbox"  value="Option1" id="HuntXP'.$i.'" aria-label="..." checked> ';
+}
+
+$uncheck_huntXP = 15 - $hunt_xp['XP'];
+                    for ($s = 1; $s <= $uncheck_huntXP; $s++) {
+    
+                        echo ' <input type="checkbox"  value="Option'.$s.'" id="HuntXP'.$i.'" aria-label="..." > ';
+}
+                    ?>
                  	 
-                        <label class="checkbox">Hunt XP:  </label>
-                            <input type="checkbox"  value="Option1" id="HuntXP1" aria-label="..."> 
-                            <input type="checkbox"  value="Option2" id="HuntXP2" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP3" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP4" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP5" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP6" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP7" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP8" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP9" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP10" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP11" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP12" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP13" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP14" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP15" aria-label="...">
-                            <input type="checkbox"  value="Option2" id="HuntXP16" aria-label="...">
+                        
+                            
                             <br/>
                             <label >Weapon proficiency type: </label>
                                 <select class="form-control">
@@ -232,16 +238,20 @@ $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVI
                  	<div class="row">
                     	<div class="col-sm-12">
                             <label class="checkbox">Courage  </label>
-                                    <input type="checkbox"  value="Option1" id="HuntXP1" aria-label="..."> 
-                                    <input type="checkbox"  value="Option2" id="HuntXP2" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP3" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP4" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP5" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP6" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP7" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP8" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP9" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP10" aria-label="...">
+                            
+                            <?php
+                    for ($i = 1; $i <= $courage['COURAGE']; $i++) {
+    
+                        echo ' <input type="checkbox"  value="Option1" id="Courage'.$i.'" aria-label="..." checked> ';
+}
+
+$uncheck_courage = 10 - $courage['COURAGE'];
+                    for ($s = 1; $s <= $uncheck_courage; $s++) {
+    
+                        echo ' <input type="checkbox"  value="Option'.$s.'" id="Courage'.$i.'" aria-label="..." > ';
+}
+                    ?>
+
                 		</div>
                         <div class="col-sm-3">                    
                             <div class="radio">
@@ -266,19 +276,23 @@ $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVI
                          <div class="col-sm-8">
                          <textarea class="form-control" rows="3"></textarea>
                          </div>
-                         <hr/>lol
+                         <hr/>
                          <div class="col-sm-12">
                             <label class="checkbox">Understanding  </label>
-                                    <input type="checkbox"  value="Option1" id="HuntXP1" aria-label="..."> 
-                                    <input type="checkbox"  value="Option2" id="HuntXP2" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP3" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP4" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP5" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP6" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP7" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP8" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP9" aria-label="...">
-                                    <input type="checkbox"  value="Option2" id="HuntXP10" aria-label="...">
+                             
+                                  <?php
+                    for ($i = 1; $i <= $understanding['Understanding']; $i++) {
+    
+                        echo ' <input type="checkbox"  value="Option'.$i.'" id="Understanding'.$i.'" aria-label="..." checked> ';
+}
+
+$uncheck_understanding = 10 - $understanding['Understanding'];
+                    for ($s = 1; $s <= $uncheck_understanding; $s++) {
+    
+                        echo ' <input type="checkbox"  value="Option'.$s.'" id="Understanding'.$i.'" aria-label="..." > ';
+}
+                    ?>
+
                          </div> 
                           <div class="col-sm-3">                    
                             <div class="radio">
