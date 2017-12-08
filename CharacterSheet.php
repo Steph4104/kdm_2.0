@@ -333,11 +333,71 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
     	</div>
     	<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       		<div class="panel-body">
-            	<div class="col-sm-6">
-                Stats
+            	<div class="col-sm-1">
+                 <div class="form-group col-md-2 stats">
+      <label for="inputZip">Movement</label>
+      <input type="text" class="form-control"  id="inputZip">
+    </div>
+                
+              </div>
+              <div class="col-sm-5">
+               
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Accuracy</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Strengh</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Evasion</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Luck</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Speed</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
                 </div>
                 <div class="col-sm-6">
-                Armor
+                    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Head</label>
+      <input type="text" class="form-control" id="inputZip">
+      <input class=".form-check-inline" type="checkbox">
+    </div>
+        
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Arms</label>
+      <input type="text" class="form-control" id="inputZip">
+      <input class="form-check-input" type="checkbox">
+      <input class="form-check-input" type="checkbox">
+    </div>
+
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Body</label>
+      <input type="text" class="form-control" id="inputZip">
+       <input class="form-check-input" type="checkbox">
+        <input class="form-check-input" type="checkbox">
+    </div>
+
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Waist</label>
+      <input type="text" class="form-control" id="inputZip">
+      <input class="form-check-input" type="checkbox">
+      <input class="form-check-input" type="checkbox">
+    </div>
+
+    <div class="form-group col-md-2" style='margin:0px;'>
+      <label for="inputZip">Legs</label>
+      <input type="text" class="form-control" id="inputZip">
+      <input class="form-check-input" type="checkbox">
+      <input class="form-check-input" type="checkbox">
+    </div>
+
                 </div>
       		</div>
     	</div>
@@ -351,7 +411,21 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
     	</div>
     	<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       		<div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+             
+        <div class="form-group col-sm-4">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+   <div class="form-group col-sm-4 spacing-textera">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+
+   <div class="form-group col-sm-4 spacing-textera">
+    <label for="exampleFormControlTextarea1">Example textarea</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
       		</div>
     	</div>
   	</div>
