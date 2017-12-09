@@ -20,12 +20,12 @@ body {
 }
 .borderBox{
 	border-style: dashed;
-	}
+}
 
   .stats{
     width:95px;
   }
 
   .spacing-textera{
-    margin:10px;
+    margin-left:10px;
   }

@@ -10,7 +10,7 @@
     <link rel="icon" href="css/favicon.ico">
 
     <title>Theme Template for Bootstrap</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap theme -->
@@ -68,7 +68,7 @@ $understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understand
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">KD:M - Name</a></li>
+            <li class="active"><a href="#">KD:M - <?php echo $name["NAME_SURVIVORS"]; ?></a></li>
             <li><a href="#about">Settlement Sheet</a></li>
             
             <li class="dropdown">
@@ -335,67 +335,67 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
       		<div class="panel-body">
             	<div class="col-sm-1">
                  <div class="form-group col-md-2 stats">
-      <label for="inputZip">Movement</label>
-      <input type="text" class="form-control"  id="inputZip">
+      <label for="movement">Movement</label>
+      <input type="text" class="form-control"  id="movement">
     </div>
                 
               </div>
               <div class="col-sm-5">
                
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Accuracy</label>
-      <input type="text" class="form-control" id="inputZip">
+      <label for="accuracy">Accuracy</label>
+      <input type="text" class="form-control" id="accuracy">
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Strengh</label>
-      <input type="text" class="form-control" id="inputZip">
+      <label for="strengh">Strengh</label>
+      <input type="text" class="form-control" id="strengh">
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Evasion</label>
-      <input type="text" class="form-control" id="inputZip">
+      <label for="evasion">Evasion</label>
+      <input type="text" class="form-control" id="evasion">
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Luck</label>
-      <input type="text" class="form-control" id="inputZip">
+      <label for="luck">Luck</label>
+      <input type="text" class="form-control" id="luck">
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Speed</label>
-      <input type="text" class="form-control" id="inputZip">
+      <label for="speed">Speed</label>
+      <input type="text" class="form-control" id="speed">
     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Head</label>
-      <input type="text" class="form-control" id="inputZip">
-      <input class=".form-check-inline" type="checkbox">
+      <label for="head">Head</label>
+      <input type="text" class="form-control" id="head">
+      <input class=".form-check-inline" type="checkbox" id="box_head_1">
     </div>
         
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Arms</label>
-      <input type="text" class="form-control" id="inputZip">
-      <input class="form-check-input" type="checkbox">
-      <input class="form-check-input" type="checkbox">
+      <label for="arm">Arms</label>
+      <input type="text" class="form-control" id="arm">
+      <input class="form-check-input" type="checkbox" class="arm_box_1">
+      <input class="form-check-input" type="checkbox" class="arm_box_2">
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Body</label>
-      <input type="text" class="form-control" id="inputZip">
-       <input class="form-check-input" type="checkbox">
-        <input class="form-check-input" type="checkbox">
+      <label for="body">Body</label>
+      <input type="text" class="form-control" id="body">
+       <input class="form-check-input" type="checkbox" class="body_box_1">
+        <input class="form-check-input" type="checkbox" class="body_box_1">
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Waist</label>
-      <input type="text" class="form-control" id="inputZip">
-      <input class="form-check-input" type="checkbox">
-      <input class="form-check-input" type="checkbox">
+      <label for="waist">Waist</label>
+      <input type="text" class="form-control" id="waist">
+      <input class="form-check-input" type="checkbox" class="waist_box_1">
+      <input class="form-check-input" type="checkbox" class="waist_box_1">
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="inputZip">Legs</label>
-      <input type="text" class="form-control" id="inputZip">
-      <input class="form-check-input" type="checkbox">
-      <input class="form-check-input" type="checkbox">
+      <label for="legs">Legs</label>
+      <input type="text" class="form-control" id="legs">
+      <input class="form-check-input" type="checkbox" class="legs_box_1">
+      <input class="form-check-input" type="checkbox" class="legs_box_1">
     </div>
 
                 </div>
@@ -413,18 +413,18 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
       		<div class="panel-body">
              
         <div class="form-group col-sm-4">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <label for="fighting_art_1">#1</label>
+    <textarea class="form-control" id="fighting_art_1" rows="3"></textarea>
   </div>
 
-   <div class="form-group col-sm-4 spacing-textera">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+   <div class="col-sm-4 spacing-textera">
+    <label for="fighting_art_2">#2</label>
+    <textarea class="form-control" id="fighting_art_2" rows="3"></textarea>
   </div>
 
-   <div class="form-group col-sm-4 spacing-textera">
-    <label for="exampleFormControlTextarea1">Example textarea</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+   <div class="col-sm-4 spacing-textera">
+    <label for="fighting_art_3">#3</label>
+    <textarea class="form-control" id="fighting_art_3" rows="3"></textarea>
   </div>
       		</div>
     	</div>
@@ -438,8 +438,20 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
     	</div>
     	<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
       		<div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      		</div>
+              <div class="form-group col-sm-4">
+              <label for="disorder_1">#1</label>
+              <textarea class="form-control" id="disorder_1" rows="3"></textarea>
+            </div>
+          
+             <div class="col-sm-4 spacing-textera">
+              <label for="disorder_2">#2</label>
+              <textarea class="form-control" id="disorder_2" rows="3"></textarea>
+            </div>
+          
+             <div class="col-sm-4 spacing-textera">
+              <label for="disorder_3">#3</label>
+              <textarea class="form-control" id="disorder_3" rows="3"></textarea>
+            </div></div>
     	</div>
   	</div>
 	<div class="panel panel-default">
@@ -451,8 +463,16 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
     	</div>
     	<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
       		<div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      		</div>
+              <div class="col-md-offset-1 col-sm-5">
+              <label for="abilities">Abilities</label>
+              <textarea class="form-control" id="abilities" rows="3"></textarea>
+            </div>
+            <div class="col-sm-5">
+              <label for="impairements">Impairements</label>
+              <textarea class="form-control" id="impairements" rows="3"></textarea>
+            </div>
+        
+        </div>
     	</div>
 	</div>
   	<div class="panel panel-default">
@@ -464,8 +484,10 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
     	</div>
     	<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
       		<div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      		</div>
+              <div class="col-md-offset-1 col-sm-10">
+              <label for="other">Other</label>
+              <textarea class="form-control" id="other" rows="3"></textarea>
+            </div></div>
     	</div>
 	</div>
 </div>
