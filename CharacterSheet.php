@@ -53,6 +53,9 @@ $hunt_xp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM hunt_xp WHERE ID
 $courage = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM courage WHERE ID_SURVIVOR = $survivor_id"));
 
 $understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understanding WHERE ID_SURVIVOR = $survivor_id"));
+
+$w_proficiency = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM w_proficiency WHERE ID_SURVIVOR = $survivor_id"));
+
 ?>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -209,29 +212,36 @@ $uncheck_huntXP = 15 - $hunt_xp['XP'];
 }
                     ?>
                  	 
-                        
+                        <?php $weapon = array("1" => "Dagger","2" => "Sword", "3" => "Club", "4" => "Bow","5" =>"Catar") ?>
                             
                             <br/>
                             <label >Weapon proficiency type: </label>
                                 <select class="form-control">
-                                    <option>Dagger</option>
-                                    <option>Sword</option>
-                                    <option>Club</option>
-                                    <option>Bow</option>
-                                    <option>Catar</option>
+                                    <?php foreach($weapon as $key => $name){
+                                        if ($w_proficiency['TYPE'] == $key){
+                                            echo '<option value="'.$key.' "selected>'.$name.'</option>'; //close your tags!!
+                                        }else{
+                                            echo '<option value="'.$key.'">'.$name.'</option>'; //close your tags!!
+                                            
+                                        }
+                                        
+                                    } ?>
+                                   
                                 </select>
                                          
                     		<label class="checkbox">Weapon proficiency:  </label>
-                            <input type="checkbox"  value="WeaponP1" id="WeaponP1" aria-label="..."> 
-                            <input type="checkbox"  value="WeaponP2" id="WeaponP2" aria-label="...">
-                            <input type="checkbox"  value="WeaponP3" id="WeaponP3" aria-label="...">
-                            <input type="checkbox"  value="WeaponP4" id="WeaponP4" aria-label="...">
-                            <input type="checkbox"  value="WeaponP5" id="WeaponP5" aria-label="...">
-                            <input type="checkbox"  value="WeaponP6" id="WeaponP6" aria-label="...">
-                            <input type="checkbox"  value="WeaponP7" id="WeaponP7" aria-label="...">
-                            <input type="checkbox"  value="WeaponP8" id="WeaponP8" aria-label="...">
-                            <input type="checkbox"  value="WeaponP9" id="WeaponP9" aria-label="...">
-                            <input type="checkbox"  value="WeaponP10" id="WeaponP10" aria-label="...">
+                            <?php
+                            for ($i = 1; $i <= $w_proficiency['PROFICIENCY']; $i++) {
+            
+                                echo ' <input type="checkbox"  value="Option1" id="proficiency'.$i.'" aria-label="..." checked> ';
+        }
+        
+        $uncheck_proficiency = 15 - $w_proficiency['PROFICIENCY'];
+                            for ($s = 1; $s <= $uncheck_proficiency; $s++) {
+            
+                                echo ' <input type="checkbox"  value="Option'.$s.'" id="proficiency'.$i.'" aria-label="..." > ';
+        }
+                            ?>
                 </div>
                
                  <div class="col-sm-6">
@@ -256,25 +266,25 @@ $uncheck_courage = 10 - $courage['COURAGE'];
                         <div class="col-sm-3">                    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                        <input type="radio" name="courage_1" id="courage_1" value="1" <?php echo ($courage['OPTION_COURAGE'] == 1 ? 'checked': ""); ?>>
                                     Stalwart
                                   </label>
                             </div>    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                        <input type="radio" name="courage_2" id="courage_2" value="2" <?php echo ($courage['OPTION_COURAGE'] == 2 ? 'checked' : ""); ?>>
                                     Prepared
                                   </label>
                             </div>     
                              <div class="radio">
                                   <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                        <input type="radio" name="courage_3" id="courage_3" value="3" <?php echo ($courage['OPTION_COURAGE'] == 3 ? 'checked' : ""); ?>>
                                     Matchmaker
                                   </label>
                             </div>
                  		</div>                   
                          <div class="col-sm-8">
-                         <textarea class="form-control" rows="3"></textarea>
+                         <textarea class="form-control" rows="3"><?php echo $courage['OTHER']?></textarea>
                          </div>
                          <hr/>
                          <div class="col-sm-12">
@@ -297,25 +307,25 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
                           <div class="col-sm-3">                    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                        <input type="radio" name="understanding_1" id="understanding_1" value="1" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 1 ? 'checked': ""); ?>>
                                     Analyse
                                   </label>
                             </div>    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                        <input type="radio" name="understanding_2" id="understanding_2" value="2" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 2 ? 'checked': ""); ?>>
                                     Explore
                                   </label>
                             </div>     
                              <div class="radio">
                                   <label>
-                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                                        <input type="radio" name="understanding_3" id="understanding_3" value="3" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 3 ? 'checked': ""); ?>>
                                     Tinker
                                   </label>
                             </div>
                  		</div>         
                           <div class="col-sm-8">
-                         <textarea class="form-control" rows="3"></textarea>
+                         <textarea class="form-control" rows="3"><?php echo $understanding['OTHER']?></textarea>
                          </div>  
                         </div> 
                   </div>
