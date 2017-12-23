@@ -56,6 +56,12 @@ $understanding = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM understand
 
 $w_proficiency = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM w_proficiency WHERE ID_SURVIVOR = $survivor_id"));
 
+$primary_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM primary_stat WHERE ID_SURVIVOR = $survivor_id"));
+
+$armor_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
+
+
+
 
 ?>
     <!-- Fixed navbar -->
@@ -132,145 +138,7 @@ $w_proficiency = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM w_proficie
         		</a>
       		</h4>
     	</div>
-		<div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      		<div class="panel-body">
-            <div class="row">
-            
-				<div class="col-sm-6">
-                    <label class="checkbox">Hunt XP:  </label>
-                    <?php
-                    for ($i = 1; $i <= $hunt_xp['XP']; $i++) {
-    
-                        echo ' <input type="checkbox"  value="Option1" id="HuntXP'.$i.'" aria-label="..." checked> ';
-}
-
-$uncheck_huntXP = 15 - $hunt_xp['XP'];
-                    for ($s = 1; $s <= $uncheck_huntXP; $s++) {
-    
-                        echo ' <input type="checkbox"  value="Option'.$s.'" id="HuntXP'.$i.'" aria-label="..." > ';
-}
-                    ?>
-                 	 
-                        <?php $weapon = array("1" => "Dagger","2" => "Sword", "3" => "Club", "4" => "Bow","5" =>"Catar") ?>
-                            
-                            <br/>
-                            <label >Weapon proficiency type: </label>
-                                <select class="form-control">
-                                    <?php foreach($weapon as $key => $name){
-                                        if ($w_proficiency['TYPE'] == $key){
-                                            echo '<option value="'.$key.' "selected>'.$name.'</option>'; //close your tags!!
-                                        }else{
-                                            echo '<option value="'.$key.'">'.$name.'</option>'; //close your tags!!
-                                            
-                                        }
-                                        
-                                    } ?>
-                                   
-                                </select>
-                                         
-                    		<label class="checkbox">Weapon proficiency:  </label>
-                            <?php
-                            for ($i = 1; $i <= $w_proficiency['PROFICIENCY']; $i++) {
-            
-                                echo ' <input type="checkbox"  value="Option1" id="proficiency'.$i.'" aria-label="..." checked> ';
-        }
-        
-        $uncheck_proficiency = 15 - $w_proficiency['PROFICIENCY'];
-                            for ($s = 1; $s <= $uncheck_proficiency; $s++) {
-            
-                                echo ' <input type="checkbox"  value="Option'.$s.'" id="proficiency'.$i.'" aria-label="..." > ';
-        }
-                            ?>
-                </div>
-               
-                 <div class="col-sm-6">
-                 	<div class="row">
-                    	<div class="col-sm-12">
-                            <label class="checkbox">Courage  </label>
-                            
-                            <?php
-                    for ($i = 1; $i <= $courage['COURAGE']; $i++) {
-    
-                        echo ' <input type="checkbox"  value="Option1" id="Courage'.$i.'" aria-label="..." checked> ';
-}
-
-$uncheck_courage = 10 - $courage['COURAGE'];
-                    for ($s = 1; $s <= $uncheck_courage; $s++) {
-    
-                        echo ' <input type="checkbox"  value="Option'.$s.'" id="Courage'.$i.'" aria-label="..." > ';
-}
-                    ?>
-
-                		</div>
-                        <div class="col-sm-3">                    
-                            <div class="radio">
-                                  <label>
-                                        <input type="radio" name="courage_1" id="courage_1" value="1" <?php echo ($courage['OPTION_COURAGE'] == 1 ? 'checked': ""); ?>>
-                                    Stalwart
-                                  </label>
-                            </div>    
-                            <div class="radio">
-                                  <label>
-                                        <input type="radio" name="courage_2" id="courage_2" value="2" <?php echo ($courage['OPTION_COURAGE'] == 2 ? 'checked' : ""); ?>>
-                                    Prepared
-                                  </label>
-                            </div>     
-                             <div class="radio">
-                                  <label>
-                                        <input type="radio" name="courage_3" id="courage_3" value="3" <?php echo ($courage['OPTION_COURAGE'] == 3 ? 'checked' : ""); ?>>
-                                    Matchmaker
-                                  </label>
-                            </div>
-                 		</div>                   
-                         <div class="col-sm-8">
-                         <textarea class="form-control" rows="3"><?php echo $courage['OTHER']?></textarea>
-                         </div>
-                         <hr/>
-                         <div class="col-sm-12">
-                            <label class="checkbox">Understanding  </label>
-                             
-                                  <?php
-                    for ($i = 1; $i <= $understanding['Understanding']; $i++) {
-    
-                        echo ' <input type="checkbox"  value="Option'.$i.'" id="Understanding'.$i.'" aria-label="..." checked> ';
-}
-
-$uncheck_understanding = 10 - $understanding['Understanding'];
-                    for ($s = 1; $s <= $uncheck_understanding; $s++) {
-    
-                        echo ' <input type="checkbox"  value="Option'.$s.'" id="Understanding'.$i.'" aria-label="..." > ';
-}
-                    ?>
-
-                         </div> 
-                          <div class="col-sm-3">                    
-                            <div class="radio">
-                                  <label>
-                                        <input type="radio" name="understanding_1" id="understanding_1" value="1" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 1 ? 'checked': ""); ?>>
-                                    Analyse
-                                  </label>
-                            </div>    
-                            <div class="radio">
-                                  <label>
-                                        <input type="radio" name="understanding_2" id="understanding_2" value="2" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 2 ? 'checked': ""); ?>>
-                                    Explore
-                                  </label>
-                            </div>     
-                             <div class="radio">
-                                  <label>
-                                        <input type="radio" name="understanding_3" id="understanding_3" value="3" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 3 ? 'checked': ""); ?>>
-                                    Tinker
-                                  </label>
-                            </div>
-                 		</div>         
-                          <div class="col-sm-8">
-                         <textarea class="form-control" rows="3"><?php echo $understanding['OTHER']?></textarea>
-                         </div>  
-                        </div> 
-                  </div>
-     		</div>
-            </div>
-    	</div>
+ <?php require_once 'experience.php'; ?>
 	</div>
 
 	<div class="panel panel-default">
@@ -281,74 +149,7 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
       		</h4>
     	</div>
     	<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-      		<div class="panel-body">
-            	<div class="col-sm-1">
-                 <div class="form-group col-md-2 stats">
-      <label for="movement">Movement</label>
-      <input type="text" class="form-control"  id="movement">
-    </div>
-                
-              </div>
-              <div class="col-sm-5">
-               
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="accuracy">Accuracy</label>
-      <input type="text" class="form-control" id="accuracy">
-    </div>
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="strengh">Strengh</label>
-      <input type="text" class="form-control" id="strengh">
-    </div>
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="evasion">Evasion</label>
-      <input type="text" class="form-control" id="evasion">
-    </div>
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="luck">Luck</label>
-      <input type="text" class="form-control" id="luck">
-    </div>
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="speed">Speed</label>
-      <input type="text" class="form-control" id="speed">
-    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="head">Head</label>
-      <input type="text" class="form-control" id="head">
-      <input class=".form-check-inline" type="checkbox" id="box_head_1">
-    </div>
-        
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="arm">Arms</label>
-      <input type="text" class="form-control" id="arm">
-      <input class="form-check-input" type="checkbox" class="arm_box_1">
-      <input class="form-check-input" type="checkbox" class="arm_box_2">
-    </div>
-
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="body">Body</label>
-      <input type="text" class="form-control" id="body">
-       <input class="form-check-input" type="checkbox" class="body_box_1">
-        <input class="form-check-input" type="checkbox" class="body_box_1">
-    </div>
-
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="waist">Waist</label>
-      <input type="text" class="form-control" id="waist">
-      <input class="form-check-input" type="checkbox" class="waist_box_1">
-      <input class="form-check-input" type="checkbox" class="waist_box_1">
-    </div>
-
-    <div class="form-group col-md-2" style='margin:0px;'>
-      <label for="legs">Legs</label>
-      <input type="text" class="form-control" id="legs">
-      <input class="form-check-input" type="checkbox" class="legs_box_1">
-      <input class="form-check-input" type="checkbox" class="legs_box_1">
-    </div>
-
-                </div>
-      		</div>
+<?php require_once 'stas_armor.php'; ?>
     	</div>
   	</div>
   	<div class="panel panel-default">
@@ -359,23 +160,7 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
       		</h4>
     	</div>
     	<div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-      		<div class="panel-body">
-             
-        <div class="form-group col-sm-4">
-    <label for="fighting_art_1">#1</label>
-    <textarea class="form-control" id="fighting_art_1" rows="3"></textarea>
-  </div>
-
-   <div class="col-sm-4 spacing-textera">
-    <label for="fighting_art_2">#2</label>
-    <textarea class="form-control" id="fighting_art_2" rows="3"></textarea>
-  </div>
-
-   <div class="col-sm-4 spacing-textera">
-    <label for="fighting_art_3">#3</label>
-    <textarea class="form-control" id="fighting_art_3" rows="3"></textarea>
-  </div>
-      		</div>
+<?php require_once 'fighting.php'; ?>
     	</div>
   	</div>
   	<div class="panel panel-default">
@@ -385,23 +170,7 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
         		</a>
       		</h4>
     	</div>
-    	<div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-      		<div class="panel-body">
-              <div class="form-group col-sm-4">
-              <label for="disorder_1">#1</label>
-              <textarea class="form-control" id="disorder_1" rows="3"></textarea>
-            </div>
-          
-             <div class="col-sm-4 spacing-textera">
-              <label for="disorder_2">#2</label>
-              <textarea class="form-control" id="disorder_2" rows="3"></textarea>
-            </div>
-          
-             <div class="col-sm-4 spacing-textera">
-              <label for="disorder_3">#3</label>
-              <textarea class="form-control" id="disorder_3" rows="3"></textarea>
-            </div></div>
-    	</div>
+<?php require_once 'disorders.php'; ?>
   	</div>
 	<div class="panel panel-default">
     	<div class="panel-heading" role="tab" id="headingSeven">
@@ -410,19 +179,7 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
         		</a>
       		</h4>
     	</div>
-    	<div id="collapseSeven" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSeven">
-      		<div class="panel-body">
-              <div class="col-md-offset-1 col-sm-5">
-              <label for="abilities">Abilities</label>
-              <textarea class="form-control" id="abilities" rows="3"></textarea>
-            </div>
-            <div class="col-sm-5">
-              <label for="impairements">Impairements</label>
-              <textarea class="form-control" id="impairements" rows="3"></textarea>
-            </div>
-        
-        </div>
-    	</div>
+<?php require_once 'abilities.php'; ?>
 	</div>
   	<div class="panel panel-default">
     	<div class="panel-heading" role="tab" id="headingEight">
@@ -432,11 +189,7 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
       		</h4>
     	</div>
     	<div id="collapseEight" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingEight">
-      		<div class="panel-body">
-              <div class="col-md-offset-1 col-sm-10">
-              <label for="other">Other</label>
-              <textarea class="form-control" id="other" rows="3"></textarea>
-            </div></div>
+      	<?php require_once 'other.php'; ?>
     	</div>
 	</div>
 </div>
