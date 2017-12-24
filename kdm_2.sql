@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Sam 09 Décembre 2017 à 15:45
+-- Généré le :  Dim 24 Décembre 2017 à 21:04
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -23,74 +23,25 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `arms`
+-- Structure de la table `armor_stat`
 --
 
-CREATE TABLE `arms` (
+CREATE TABLE `armor_stat` (
   `ID_SURVIVOR` int(11) NOT NULL,
-  `ARMS` int(11) NOT NULL,
-  `CHECKBOX` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `HEAD` varchar(5) NOT NULL,
+  `ARMS` varchar(5) NOT NULL,
+  `BODY` varchar(5) NOT NULL,
+  `WAIST` varchar(5) NOT NULL,
+  `LEGS` varchar(5) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `arms`
+-- Contenu de la table `armor_stat`
 --
 
-INSERT INTO `arms` (`ID_SURVIVOR`, `ARMS`, `CHECKBOX`) VALUES
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1);
+INSERT INTO `armor_stat` (`ID_SURVIVOR`, `HEAD`, `ARMS`, `BODY`, `WAIST`, `LEGS`) VALUES
+(1, '-1', '-2', '0', '1', '2'),
+(2, '1', '1', '0', '-1', '-2');
 
 -- --------------------------------------------------------
 
@@ -162,78 +113,6 @@ INSERT INTO `bleed` (`ID_SURVIVOR`, `BLEED`) VALUES
 (16, 4),
 (17, 2),
 (18, 1);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `body`
---
-
-CREATE TABLE `body` (
-  `ID_SURVIVOR` int(11) NOT NULL,
-  `BODY` int(11) NOT NULL,
-  `CHECKBOX` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `body`
---
-
-INSERT INTO `body` (`ID_SURVIVOR`, `BODY`, `CHECKBOX`) VALUES
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -557,78 +436,6 @@ INSERT INTO `figthing_art` (`ID_SURVIVOR`, `NAME_FIGTHING`, `EXPENTION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `head`
---
-
-CREATE TABLE `head` (
-  `ID_SURVIVOR` int(11) NOT NULL,
-  `HEAD` int(11) NOT NULL,
-  `CHECKBOX` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `head`
---
-
-INSERT INTO `head` (`ID_SURVIVOR`, `HEAD`, `CHECKBOX`) VALUES
-(1, 0, 1),
-(2, 0, 1),
-(3, 2, 0),
-(4, 2, 0),
-(5, 2, 0),
-(6, 2, 0),
-(7, 5, 0),
-(8, 0, 1),
-(9, 0, 1),
-(10, 0, 1),
-(11, 2, 0),
-(12, 0, 0),
-(13, 0, 1),
-(14, 2, 0),
-(15, 0, 1),
-(16, 2, 0),
-(17, 1, 0),
-(18, 5, 0),
-(1, 0, 1),
-(2, 0, 1),
-(3, 2, 0),
-(4, 2, 0),
-(5, 2, 0),
-(6, 2, 0),
-(7, 5, 0),
-(8, 0, 1),
-(9, 0, 1),
-(10, 0, 1),
-(11, 2, 0),
-(12, 0, 0),
-(13, 0, 1),
-(14, 2, 0),
-(15, 0, 1),
-(16, 2, 0),
-(17, 1, 0),
-(18, 5, 0),
-(1, 0, 1),
-(2, 0, 1),
-(3, 2, 0),
-(4, 2, 0),
-(5, 2, 0),
-(6, 2, 0),
-(7, 5, 0),
-(8, 0, 1),
-(9, 0, 1),
-(10, 0, 1),
-(11, 2, 0),
-(12, 0, 0),
-(13, 0, 1),
-(14, 2, 0),
-(15, 0, 1),
-(16, 2, 0),
-(17, 1, 0),
-(18, 5, 0);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `hunt_xp`
 --
 
@@ -730,78 +537,6 @@ INSERT INTO `imperments` (`NAME`, `LEVEL`, `EXPENTION`, `ID_SURVIVOR`) VALUES
 ('Blind', 2, 1, 1),
 ('Shattered Jaw', 1, 2, 6),
 ('Dismembered Arm', 2, 6, 11);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `legs`
---
-
-CREATE TABLE `legs` (
-  `ID_SURVIVOR` int(11) NOT NULL,
-  `LEGS` int(11) NOT NULL,
-  `CHECKBOX` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `legs`
---
-
-INSERT INTO `legs` (`ID_SURVIVOR`, `LEGS`, `CHECKBOX`) VALUES
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1432,78 +1167,6 @@ INSERT INTO `understanding` (`id`, `ID_SURVIVOR`, `Understanding`, `OPTION_UNDER
 -- --------------------------------------------------------
 
 --
--- Structure de la table `waist`
---
-
-CREATE TABLE `waist` (
-  `ID_SURVIVOR` int(11) NOT NULL,
-  `WAIST` int(11) NOT NULL,
-  `CHECKBOX` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `waist`
---
-
-INSERT INTO `waist` (`ID_SURVIVOR`, `WAIST`, `CHECKBOX`) VALUES
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1),
-(1, 0, 1),
-(2, 0, 1),
-(3, 5, 0),
-(4, 0, 1),
-(5, 0, 1),
-(6, 3, 0),
-(7, 1, 0),
-(8, 8, 0),
-(9, 0, 1),
-(10, 2, 1),
-(11, 2, 0),
-(12, 0, 1),
-(13, 1, 0),
-(14, 2, 0),
-(15, 0, 0),
-(16, 6, 0),
-(17, 5, 0),
-(18, 0, 1);
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `weapon`
 --
 
@@ -1642,7 +1305,7 @@ ALTER TABLE `survivors`
 -- AUTO_INCREMENT pour la table `understanding`
 --
 ALTER TABLE `understanding`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT pour la table `w_proficiency`
 --
