@@ -40,30 +40,30 @@
         
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="arm">Arms</label>
-      <input type="text" class="form-control" id="arm">
-      <input class="form-check-input" type="checkbox" class="arm_box_1">
-      <input class="form-check-input" type="checkbox" class="arm_box_2">
+      <input type="text" class="form-control" id="arm" value=<?php echo($armor_stat['ARMS'] >= 0 ?  $armor_stat['ARMS'] : 0);?>>
+      <input class="form-check-input" type="checkbox" class="arm_box_1" <?php echo($armor_stat['ARMS'] < 0 ? 'checked' : '');?>>
+      <input class="form-check-input" type="checkbox" class="arm_box_2" <?php echo($armor_stat['ARMS'] < -1 ? 'checked' : '');?>>
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="body">Body</label>
-      <input type="text" class="form-control" id="body">
-       <input class="form-check-input" type="checkbox" class="body_box_1">
-        <input class="form-check-input" type="checkbox" class="body_box_1">
+      <input type="text" class="form-control" id="body" value=<?php echo($armor_stat['BODY'] >= 0 ?  $armor_stat['BODY'] : 0);?>>
+       <input class="form-check-input" type="checkbox" class="body_box_1" <?php echo($armor_stat['BODY'] < 0 ? 'checked' : '');?>>
+        <input class="form-check-input" type="checkbox" class="body_box_1" <?php echo($armor_stat['BODY'] < -1 ? 'checked' : '');?>>
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="waist">Waist</label>
-      <input type="text" class="form-control" id="waist">
-      <input class="form-check-input" type="checkbox" class="waist_box_1">
-      <input class="form-check-input" type="checkbox" class="waist_box_1">
+      <input type="text" class="form-control" id="waist" value=<?php echo($armor_stat['WAIST'] >= 0 ?  $armor_stat['WAIST'] : 0);?>>
+      <input class="form-check-input" type="checkbox" class="waist_box_1" <?php echo($armor_stat['WAIST'] < 0 ? 'checked' : '');?>>
+      <input class="form-check-input" type="checkbox" class="waist_box_1" <?php echo($armor_stat['WAIST'] < -1 ? 'checked' : '');?>>
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="legs">Legs</label>
-      <input type="text" class="form-control" id="legs">
-      <input class="form-check-input" type="checkbox" class="legs_box_1">
-      <input class="form-check-input" type="checkbox" class="legs_box_1">
+      <input type="text" class="form-control" id="legs" value=<?php echo($armor_stat['LEGS'] >= 0 ?  $armor_stat['LEGS'] : 0);?>>
+      <input class="form-check-input" type="checkbox" class="legs_box_1" <?php echo($armor_stat['LEGS'] < 0 ? 'checked' : '');?>>
+      <input class="form-check-input" type="checkbox" class="legs_box_1" <?php echo($armor_stat['LEGS'] < -1 ? 'checked' : '');?>>
     </div>
 
                 </div>
