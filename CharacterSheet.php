@@ -60,7 +60,7 @@ $primary_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM primary_sta
 
 $armor_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
 
-
+$figthing_art = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM fighting_disroder WHERE ID_SURVIVOR = $survivor_id")); 
 
 
 ?>
