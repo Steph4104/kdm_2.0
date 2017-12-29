@@ -60,8 +60,9 @@ $primary_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM primary_sta
 
 $armor_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
 
+$ability_imp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ability_impairements WHERE ID_SURVIVOR = $survivor_id"));
 
-
+$other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM OTHER WHERE ID_SURVIVOR = $survivor_id"));
 
 ?>
     <!-- Fixed navbar -->
@@ -170,8 +171,10 @@ $armor_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WH
         		</a>
       		</h4>
     	</div>
+      <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
 <?php require_once 'disorders.php'; ?>
   	</div>
+    </div>
 	<div class="panel panel-default">
     	<div class="panel-heading" role="tab" id="headingSeven">
       		<h4 class="panel-title">

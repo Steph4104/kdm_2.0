@@ -59,7 +59,7 @@ while ($row = $fighting_art->fetch_assoc()) {
   <select class="form-control">
   <?php 
     $fighting_art = mysqli_query($con, "SELECT * FROM fighting_art ORDER BY ID ASC");  
-    $fighting_art = mysqli_query($con, "SELECT * FROM fighting_art");  
+   
   while ($row = $fighting_art->fetch_assoc()) {
     if($row['ID'] == $fighting_art_num2){
       echo '<option value="'.$row["ID"].'" selected>'.$row["Nom"].'</option>';
