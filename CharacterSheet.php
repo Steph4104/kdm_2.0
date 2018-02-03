@@ -20,6 +20,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/theme.css" rel="stylesheet">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -28,6 +30,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+
 
   <body>
 <?php
@@ -45,6 +48,8 @@ $name = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM survivors WHERE ID_
 $sexe = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM sexe WHERE ID_SURVIVOR = $survivor_id"));
 
 $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVIVOR = $survivor_id"));
+
+$dead = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM dead WHERE ID_SURVIVOR = $survivor_id"));
 
 $survivol = mysqli_fetch_assoc(mysqli_query($con, "SELECT SURVIVOL FROM survivol WHERE ID_SURVIVOR = $survivor_id"));
 
@@ -65,6 +70,35 @@ $ability_imp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ability_impa
 $other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM OTHER WHERE ID_SURVIVOR = $survivor_id"));
 
 ?>
+
+<script>
+$(document).ready(function() {
+$('.test').on('change', function() {
+    var itemID = $(this).attr('id');
+    var itemVal = $(this).val();
+   // var itemVal = itemVal.replace(/n/g, '<br />');
+   // var itemVal = itemVal.replace(/&/g, 'and');
+    var itemstring = itemID + ' '+itemVal;
+ 
+    save(itemstring);
+});
+
+function save(itemstring){
+  var response=document.getElementById("response");
+  var data = 'data='+itemstring;
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange=function(){
+    if (xmlhttp.readyState==4 && xmlhttp.status==200){
+     alert('work!!');
+    }
+  }
+  xmlhttp.open("POST","save.php",true);
+        //Must add this request header to XMLHttpRequest request for POST
+        xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send(data);
+}
+});
+</script>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
