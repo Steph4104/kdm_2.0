@@ -47,6 +47,14 @@ error_log($info['2']);
         $table = 'action';
         $name = 'DASH';
         break;
+        case 'SurvivalEncourage':
+        $table = 'action';
+        $name = 'ENCOURAGE';
+        break;
+        case 'SurvivalSurge':
+        $table = 'action';
+        $name = 'SURGE';
+        break;
     default:
         break;
 }

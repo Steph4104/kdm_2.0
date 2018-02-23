@@ -4,10 +4,20 @@
         <input type="SurvivalPts" class="form-control test" id="SurvivalPts" placeholder=" # " value=<?php echo $survivol['SURVIVOL'];?> >
     </div>
 </div>
+<?php
+
+// while ($row = $action->fetch_assoc()) {
+//     echo '<option value="'.$row["ID_SURVIVOR"].'">'.$row["NAME_SURVIVORS"].'</option>';
+    
+  
+// }
+print_r($action);
+?>
+
 <div class="col-sm-2">
     <div class="checkbox">
         <label>
-            <input type="checkbox" class='test'  value="Dodge" id="SurvivalDodge" <?php if($action['DODGE'] =='1'){echo'checked';}  ?>> Dodge
+            <input type="checkbox" class='test' id="SurvivalDodge" <?php echo ($action['DODGE'] =='1') ? 'value ="0" checked' : 'value="1"';  ?>> Dodge
         </label>
     </div>
     <div class="checkbox">

@@ -23,7 +23,7 @@
 <div class="col-sm-2">
     <div class="checkbox">
         <label>
-            <input type="checkbox" class='test' value="Dead" id="CharacterInfoDead" <?php if($dead['DEAD'] =='1'){echo'checked';}  ?>> Dead
+            <input type="checkbox" class='test' id="CharacterInfoDead" <?php echo ($dead['DEAD'] =='1') ? 'value ="0" checked' : 'value="1"';  ?> > Dead
         </label>
     </div>
 </div>
