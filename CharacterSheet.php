@@ -1,36 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="css/favicon.ico">
-
-    <title>Theme Template for Bootstrap</title>
-    
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/theme.css" rel="stylesheet">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
-
-
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
+<?php require_once 'head.php';?>
 
   <body>
 <?php
@@ -41,7 +11,12 @@ if (mysqli_connect_errno())
   {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
 }
-$survivor_id = 1;
+if($_POST['characterName']){
+  $survivor_id = $_POST['characterName'];
+}else{
+  $survivor_id = 1;
+}
+
 
 $name = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM survivors WHERE ID_SURVIVOR = $survivor_id"));
 
@@ -52,6 +27,8 @@ $born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVI
 $dead = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM dead WHERE ID_SURVIVOR = $survivor_id"));
 
 $survivol = mysqli_fetch_assoc(mysqli_query($con, "SELECT SURVIVOL FROM survivol WHERE ID_SURVIVOR = $survivor_id"));
+
+$action = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM action WHERE ID_SURVIVOR = $survivor_id"));
 
 $hunt_xp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM hunt_xp WHERE ID_SURVIVOR = $survivor_id"));
 
@@ -74,11 +51,12 @@ $other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM OTHER WHERE ID_SUR
 <script>
 $(document).ready(function() {
 $('.test').on('change', function() {
+  var character = <?php echo $survivor_id; ?>;
     var itemID = $(this).attr('id');
     var itemVal = $(this).val();
    // var itemVal = itemVal.replace(/n/g, '<br />');
    // var itemVal = itemVal.replace(/&/g, 'and');
-    var itemstring = itemID + ' '+itemVal;
+    var itemstring = itemID + ' '+itemVal+' '+character;
  
     save(itemstring);
 });
@@ -109,7 +87,7 @@ function save(itemstring){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Kingdom Death: Monster</a>
+          <a class="navbar-brand" href="index.php">Kingdom Death: Monster</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
