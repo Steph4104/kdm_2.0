@@ -4,15 +4,6 @@
         <input type="SurvivalPts" class="form-control test" id="SurvivalPts" placeholder=" # " value=<?php echo $survivol['SURVIVOL'];?> >
     </div>
 </div>
-<?php
-
-// while ($row = $action->fetch_assoc()) {
-//     echo '<option value="'.$row["ID_SURVIVOR"].'">'.$row["NAME_SURVIVORS"].'</option>';
-    
-  
-// }
-print_r($action);
-?>
 
 <div class="col-sm-2">
     <div class="checkbox">
@@ -22,26 +13,26 @@ print_r($action);
     </div>
     <div class="checkbox">
         <label>
-            <input type="checkbox"  value="Dash" id="SurvivalDash" <?php if($action['DASH'] =='1'){echo'checked';}  ?>> Dash
+            <input type="checkbox" class='test' id="SurvivalDash" <?php echo ($action['DASH'] =='1') ? 'value ="0" checked' : 'value="1"';  ?>> Dash
         </label>
     </div>
 </div>
 <div class="col-sm-2">
     <div class="checkbox">
         <label>
-            <input type="checkbox"  value="Encourage" id="SurvivalEncourage" <?php if($action['ENCOURAGE'] =='1'){echo'checked';}  ?>> Encourage
+            <input type="checkbox" class='test' id="SurvivalEncourage" <?php echo ($action['ENCOURAGE'] =='1') ? 'value ="0" checked' : 'value="1"';  ?>> Encourage
         </label>
     </div>
     <div class="checkbox">
         <label>
-            <input type="checkbox"  value="Surge" id="SurvivalSurge" <?php if($action['SURGE'] =='1'){echo'checked';}  ?>> Surge
+            <input type="checkbox" class='test' id="SurvivalSurge" <?php echo ($action['SURGE'] =='1') ? 'value ="0" checked' : 'value="1"';  ?>> Surge
         </label>
     </div>
 </div>
 <div class="col-sm-4">
     <div class="checkbox">
         <label>
-            <input type="checkbox"  value="NoSurvival" id="NoSurvival"> Cannot spend survivals.
+            <input type="checkbox" class='test' id="NoSurvival" <?php echo ($survivol['SPEND'] =='0') ? 'value ="1" checked' : 'value="1"';  ?>> Cannot spend survivals.
         </label>
     </div>
 </div>        
