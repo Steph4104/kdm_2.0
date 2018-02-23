@@ -12,6 +12,8 @@ $info = explode(" ", $post_data);
 
 error_log($info['0']);
 error_log($info['1']);
+error_log($info['2']);
+
 
 
 	switch ($info['0']) {
@@ -33,12 +35,24 @@ error_log($info['1']);
         $table = 'dead';
         $name = 'DEAD';
         break;
+    case 'SurvivalPts':
+        $table = 'survivol';
+        $name = 'SURVIVOL';
+        break;
+    case 'SurvivalDodge':
+        $table = 'action';
+        $name = 'DODGE';
+        break;
+    case 'SurvivalDash':
+        $table = 'action';
+        $name = 'DASH';
+        break;
     default:
         break;
 }
 
 
-$sql = "UPDATE ".$table." SET ".$name."='".$info['1']."' WHERE ID_SURVIVOR='".$survivor_id."'";
+$sql = "UPDATE ".$table." SET ".$name."='".$info['1']."' WHERE ID_SURVIVOR='".$info['2']."'";
 
 if ($con->query($sql) === TRUE) {
     echo "Record updated successfully";
