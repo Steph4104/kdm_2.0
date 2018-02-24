@@ -3,7 +3,7 @@
             <div class="row">
             
 				<div class="col-sm-6">
-          <div id='update_hunt'>
+          <div id='update_HuntXP'>
                     <label class="checkbox">Hunt XP:  </label>
                     
 
@@ -38,39 +38,43 @@ $uncheck_huntXP = 15 - $hunt_xp['XP'];
                                     } ?>
                                    
                                 </select>
-                                         
+                              <div id='update_proficiency'>           
                     		<label class="checkbox">Weapon proficiency:  </label>
                             <?php
                             for ($i = 1; $i <= $w_proficiency['PROFICIENCY']; $i++) {
             
-                                echo ' <input type="checkbox"  value="Option1" id="proficiency'.$i.'" aria-label="..." checked> ';
+                                echo ' <input type="checkbox" id="proficiency"  class="test2"  value="less,'.$w_proficiency['PROFICIENCY'].'" aria-label="..." checked> ';
         }
         
         $uncheck_proficiency = 15 - $w_proficiency['PROFICIENCY'];
                             for ($s = 1; $s <= $uncheck_proficiency; $s++) {
             
-                                echo ' <input type="checkbox"  value="Option'.$s.'" id="proficiency'.$i.'" aria-label="..." > ';
+                                echo ' <input type="checkbox" id="proficiency" class="test2"  value="more,'.$w_proficiency['PROFICIENCY'].'" aria-label="..." > ';
         }
                             ?>
+                </div>
                 </div>
                
                  <div class="col-sm-6">
                  	<div class="row">
                     	<div class="col-sm-12">
+                        <div id='update_Courage'>
                             <label class="checkbox">Courage  </label>
                             
                             <?php
                     for ($i = 1; $i <= $courage['COURAGE']; $i++) {
     
-                        echo ' <input type="checkbox"  value="Option1" id="Courage'.$i.'" aria-label="..." checked> ';
+                        echo ' <input type="checkbox" class="test2" value="less,'.$courage['COURAGE'].'" id="Courage" aria-label="..." checked> ';
 }
 
 $uncheck_courage = 10 - $courage['COURAGE'];
                     for ($s = 1; $s <= $uncheck_courage; $s++) {
     
-                        echo ' <input type="checkbox"  value="Option'.$s.'" id="Courage'.$i.'" aria-label="..." > ';
+                        echo ' <input type="checkbox" class="test2" value="more,'.$courage['COURAGE'].'" id="Courage" aria-label="..." > ';
 }
+
                     ?>
+                  </div>
 
                 		</div>
                         <div class="col-sm-3">                    
@@ -98,21 +102,22 @@ $uncheck_courage = 10 - $courage['COURAGE'];
                          </div>
                          <hr/>
                          <div class="col-sm-12">
+                          <div id="update_Understanding">
                             <label class="checkbox">Understanding  </label>
                              
                                   <?php
                     for ($i = 1; $i <= $understanding['Understanding']; $i++) {
     
-                        echo ' <input type="checkbox"  value="Option'.$i.'" id="Understanding'.$i.'" aria-label="..." checked> ';
+                        echo ' <input type="checkbox"  class="test2" value="less,'.$understanding['Understanding'].'" id="Understanding" aria-label="..." checked> ';
 }
 
 $uncheck_understanding = 10 - $understanding['Understanding'];
                     for ($s = 1; $s <= $uncheck_understanding; $s++) {
     
-                        echo ' <input type="checkbox"  value="Option'.$s.'" id="Understanding'.$i.'" aria-label="..." > ';
+                        echo ' <input type="checkbox"  class="test2" value="more,'.$understanding['Understanding'].'" id="Understanding" aria-label="..." > ';
 }
                     ?>
-
+</div>
                          </div> 
                           <div class="col-sm-3">                    
                             <div class="radio">

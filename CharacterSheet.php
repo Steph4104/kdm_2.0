@@ -224,20 +224,19 @@ function save(itemstring){
     <script src="js/ie10-viewport-bug-workaround.js"></script>
 
        <script>
-  $('.test2').on('click', function() {
+ $('.test2').on('click', function() {
   var itemVal = $(this).val();
   var character = <?php echo $survivor_id; ?>;
   var itemID = $(this).attr('id');
 
-alert('click');
 $.ajax({
-  url: "update_hunt.php",
+  url: "update_exp.php",
   type: 'POST',
   data: { value: itemVal, id : character, type: itemID} ,
 }).success(function(data){
-  // data is your response
-  alert(data);
-  $("#update_hunt").html(data);
+
+  var section = '#update_' + itemID;
+  $(section).html(data);
 });
 });
 </script>  
