@@ -3,19 +3,24 @@
             <div class="row">
             
 				<div class="col-sm-6">
+          <div id='update_hunt'>
                     <label class="checkbox">Hunt XP:  </label>
+                    
+
                     <?php
                     for ($i = 1; $i <= $hunt_xp['XP']; $i++) {
     
-                        echo ' <input type="checkbox"  value="Option1" id="HuntXP'.$i.'" aria-label="..." checked> ';
+                        echo ' <input type="checkbox" class="test2"  value="less,'.$hunt_xp['XP'].'" id="HuntXP" aria-label="..." checked> ';
 }
 
 $uncheck_huntXP = 15 - $hunt_xp['XP'];
                     for ($s = 1; $s <= $uncheck_huntXP; $s++) {
     
-                        echo ' <input type="checkbox"  value="Option'.$s.'" id="HuntXP'.$i.'" aria-label="..." > ';
+                        echo ' <input type="checkbox" class="test2"  value="more,'.$hunt_xp['XP'].'" id="HuntXP" aria-label="..." > ';
 }
                     ?>
+
+</div>
                  	 
                         <?php $weapon = array("1" => "Dagger","2" => "Sword", "3" => "Club", "4" => "Bow","5" =>"Catar") ?>
                             
