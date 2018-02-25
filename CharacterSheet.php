@@ -224,7 +224,7 @@ function save(itemstring){
     <script src="js/ie10-viewport-bug-workaround.js"></script>
 
        <script>
- $('.test2').on('click', function() {
+ $('.test2').off().on('click', function() {
   var itemVal = $(this).val();
   var character = <?php echo $survivor_id; ?>;
   var itemID = $(this).attr('id');
