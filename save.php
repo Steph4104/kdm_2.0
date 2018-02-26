@@ -59,6 +59,22 @@ error_log($info['2']);
         $table = 'survivol';
         $name = 'SPEND';
         break;
+    case 'weapon':
+        $table = 'w_proficiency';
+        $name = 'TYPE';
+        break;
+    case 'courage_1':
+    case 'courage_2':
+    case 'courage_3':
+        $table = 'courage';
+        $name = 'OPTION_COURAGE';
+        break;
+    case 'understanding_1':
+    case 'understanding_2':
+    case 'unde3standing_3':
+        $table = 'understanding';
+        $name = 'OPTION_UNDERSTANDING';
+        break;
     default:
         break;
 }
