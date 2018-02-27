@@ -51,19 +51,16 @@ $other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM OTHER WHERE ID_SUR
 <script>
 $(document).ready(function() {
 $('.test').on('change', function() {
-  var character = <?php echo $survivor_id; ?>;
+    var character = <?php echo $survivor_id; ?>;
     var itemID = $(this).attr('id');
     var itemVal = $(this).val();
-   // var itemVal = itemVal.replace(/n/g, '<br />');
-   // var itemVal = itemVal.replace(/&/g, 'and');
-    var itemstring = itemID + ' '+itemVal+' '+character;
- 
-    save(itemstring);
+    var info = {"character": character,"id": itemID,"value": itemVal};
+   
+    save(info);
 });
 
-function save(itemstring){
-  var response=document.getElementById("response");
-  var data = 'data='+itemstring;
+function save(info){
+  info = JSON.stringify(info);
   var xmlhttp = new XMLHttpRequest();
   xmlhttp.onreadystatechange=function(){
     if (xmlhttp.readyState==4 && xmlhttp.status==200){
@@ -73,7 +70,7 @@ function save(itemstring){
   xmlhttp.open("POST","save.php",true);
         //Must add this request header to XMLHttpRequest request for POST
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send(data);
+        xmlhttp.send("info=" + info);
 }
 });
 </script>

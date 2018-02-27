@@ -1,22 +1,10 @@
 <?php
-//error_reporting(E_ALL);
-//var_dump($_SERVER);
-$survivor_id = 1;
-$post_data = htmlspecialchars($_POST['data']);
-error_log($post_data);
 
+$info = json_decode($_POST["info"], false);
 require_once 'database.php';
 $con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
 
-$info = explode(" ", $post_data);
-
-// error_log($info['0']);
-// error_log($info['1']);
-// error_log($info['2']);
-
-
-
-	switch ($info['0']) {
+	switch ($info->id) {
     case 'CharcterInfoName':
         $table = 'survivors';
         $name = 'NAME_SURVIVORS';
@@ -78,14 +66,12 @@ $info = explode(" ", $post_data);
     case 'understanding_other':
         $table = 'understanding';
         $name = 'OTHER';
-       // $info['1'] = htmlspecialchars($info['1']);
         break;
     default:
         break;
 }
 
-error_log($info['1']);
-$sql = "UPDATE ".$table." SET ".$name."='".$info['1']."' WHERE ID_SURVIVOR='".$info['2']."'";
+$sql = "UPDATE ".$table." SET ".$name."='".$info->value."' WHERE ID_SURVIVOR='".$info->character."'";
 
 if ($con->query($sql) === TRUE) {
     echo "Record updated successfully";
