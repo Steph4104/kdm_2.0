@@ -71,6 +71,30 @@ $con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
         $table = 'understanding';
         $name = 'OTHER';
         break;
+    case 'movement':
+        $table = 'primary_stat';
+        $name = 'MOVEMENT';
+        break;
+    case 'accuracy':
+        $table = 'primary_stat';
+        $name = 'ACCURACY';
+        break;
+    case 'strength':
+        $table = 'primary_stat';
+        $name = 'STRENGTH';
+        break;
+    case 'evasion':
+        $table = 'primary_stat';
+        $name = 'EVASION';
+        break;
+    case 'luck':
+        $table = 'primary_stat';
+        $name = 'LUCK';
+        break;
+    case 'speed':
+        $table = 'primary_stat';
+        $name = 'SPEED';
+        break;
     default:
         break;
 }

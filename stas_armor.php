@@ -3,7 +3,7 @@
                  <div class="form-group col-md-2 stats">
       <label for="movement">Movement</label>
 
-      <input type="text" class="form-control"  id="movement" value=<?php echo $primary_stat['MOVEMENT'];?>>
+      <input type="text" class="form-control test"  id="movement" value=<?php echo $primary_stat['MOVEMENT'];?>>
     </div>
                 
               </div>
@@ -11,23 +11,23 @@
                
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="accuracy">Accuracy</label>
-      <input type="text" class="form-control" id="accuracy" value=<?php echo $primary_stat['ACCURACY'];?> >
+      <input type="text" class="form-control test" id="accuracy" value=<?php echo $primary_stat['ACCURACY'];?> >
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="strengh">Strengh</label>
-      <input type="text" class="form-control" id="strengh" value=<?php echo $primary_stat['STRENGHT'];?> >
+      <input type="text" class="form-control test" id="strength" value=<?php echo $primary_stat['STRENGTH'];?> >
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="evasion">Evasion</label>
-      <input type="text" class="form-control" id="evasion" value=<?php echo $primary_stat['EVASION'];?> >
+      <input type="text" class="form-control test" id="evasion" value=<?php echo $primary_stat['EVASION'];?> >
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="luck">Luck</label>
-      <input type="text" class="form-control" id="luck" value=<?php echo $primary_stat['LUCK'];?> >
+      <input type="text" class="form-control test" id="luck" value=<?php echo $primary_stat['LUCK'];?> >
     </div>
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="speed">Speed</label>
-      <input type="text" class="form-control" id="speed" value=<?php echo $primary_stat['SPEED'];?> >
+      <input type="text" class="form-control test" id="speed" value=<?php echo $primary_stat['SPEED'];?> >
     </div>
                 </div>
                 <div class="col-sm-6">
