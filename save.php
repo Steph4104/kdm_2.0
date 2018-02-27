@@ -63,6 +63,10 @@ $con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
         $table = 'understanding';
         $name = 'OPTION_UNDERSTANDING';
         break;
+    case 'courage_other':
+        $table = 'courage';
+        $name = 'OTHER';
+        break;
     case 'understanding_other':
         $table = 'understanding';
         $name = 'OTHER';

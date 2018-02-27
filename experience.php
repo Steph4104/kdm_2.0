@@ -98,7 +98,7 @@ $uncheck_courage = 10 - $courage['COURAGE'];
                             </div>
                  		</div>                   
                          <div class="col-sm-8">
-                         <textarea class="form-control" rows="3"><?php echo $courage['OTHER']?></textarea>
+                         <textarea class="form-control test" id="courage_other" rows="3"><?php echo $courage['OTHER']?></textarea>
                          </div>
                          <hr/>
                          <div class="col-sm-12">
