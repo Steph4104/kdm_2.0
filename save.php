@@ -2,7 +2,7 @@
 //error_reporting(E_ALL);
 //var_dump($_SERVER);
 $survivor_id = 1;
-$post_data = $_POST['data'];
+$post_data = htmlspecialchars($_POST['data']);
 error_log($post_data);
 
 require_once 'database.php';
@@ -10,9 +10,9 @@ $con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
 
 $info = explode(" ", $post_data);
 
-error_log($info['0']);
-error_log($info['1']);
-error_log($info['2']);
+// error_log($info['0']);
+// error_log($info['1']);
+// error_log($info['2']);
 
 
 
@@ -71,15 +71,20 @@ error_log($info['2']);
         break;
     case 'understanding_1':
     case 'understanding_2':
-    case 'unde3standing_3':
+    case 'undestanding_3':
         $table = 'understanding';
         $name = 'OPTION_UNDERSTANDING';
+        break;
+    case 'understanding_other':
+        $table = 'understanding';
+        $name = 'OTHER';
+       // $info['1'] = htmlspecialchars($info['1']);
         break;
     default:
         break;
 }
 
-
+error_log($info['1']);
 $sql = "UPDATE ".$table." SET ".$name."='".$info['1']."' WHERE ID_SURVIVOR='".$info['2']."'";
 
 if ($con->query($sql) === TRUE) {

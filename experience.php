@@ -80,19 +80,19 @@ $uncheck_courage = 10 - $courage['COURAGE'];
                         <div class="col-sm-3">                    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" class='test' name="courage_1" id="courage_1" value="1" <?php echo ($courage['OPTION_COURAGE'] == 1 ? 'checked': ""); ?>>
+                                        <input type="radio" class='test' name="courage" id="courage_1" value="1" <?php echo ($courage['OPTION_COURAGE'] == 1 ? 'checked': ""); ?>>
                                     Stalwart
                                   </label>
                             </div>    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" class='test' name="courage_2" id="courage_2" value="2" <?php echo ($courage['OPTION_COURAGE'] == 2 ? 'checked' : ""); ?>>
+                                        <input type="radio" class='test' name="courage" id="courage_2" value="2" <?php echo ($courage['OPTION_COURAGE'] == 2 ? 'checked' : ""); ?>>
                                     Prepared
                                   </label>
                             </div>     
                              <div class="radio">
                                   <label>
-                                        <input type="radio" class='test' name="courage_3" id="courage_3" value="3" <?php echo ($courage['OPTION_COURAGE'] == 3 ? 'checked' : ""); ?>>
+                                        <input type="radio" class='test' name="courage" id="courage_3" value="3" <?php echo ($courage['OPTION_COURAGE'] == 3 ? 'checked' : ""); ?>>
                                     Matchmaker
                                   </label>
                             </div>
@@ -122,25 +122,25 @@ $uncheck_understanding = 10 - $understanding['Understanding'];
                           <div class="col-sm-3">                    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" class="test" name="understanding_1" id="understanding_1" value="1" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 1 ? 'checked': ""); ?>>
+                                        <input type="radio" class="test" name="understanding" id="understanding_1" value="1" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 1 ? 'checked': ""); ?>>
                                     Analyse
                                   </label>
                             </div>    
                             <div class="radio">
                                   <label>
-                                        <input type="radio" class="test" name="understanding_2" id="understanding_2" value="2" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 2 ? 'checked': ""); ?>>
+                                        <input type="radio" class="test" name="understanding" id="understanding_2" value="2" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 2 ? 'checked': ""); ?>>
                                     Explore
                                   </label>
                             </div>     
                              <div class="radio">
                                   <label>
-                                        <input type="radio" class="test" name="understanding_3" id="understanding_3" value="3" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 3 ? 'checked': ""); ?>>
+                                        <input type="radio" class="test" name="understanding" id="understanding_3" value="3" <?php echo ($understanding['OPTION_UNDERSTANDING'] == 3 ? 'checked': ""); ?>>
                                     Tinker
                                   </label>
                             </div>
                  		</div>         
                           <div class="col-sm-8">
-                         <textarea class="form-control" rows="3"><?php echo $understanding['OTHER']?></textarea>
+                         <textarea class="form-control test" id='understanding_other' rows="3"><?php echo $understanding['OTHER']?></textarea>
                          </div>  
                         </div> 
                   </div>
