@@ -59,17 +59,21 @@
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="waist">Waist</label>
-      <input type="text" class="form-control" id="waist" value=<?php echo($armor_stat['WAIST'] >= 0 ?  $armor_stat['WAIST'] : 0);?>>
-      <input class="form-check-input" type="checkbox" class="waist_box_1" <?php echo($armor_stat['WAIST'] < 0 ? 'checked' : '');?>>
-      <input class="form-check-input" type="checkbox" class="waist_box_1" <?php echo($armor_stat['WAIST'] < -1 ? 'checked' : '');?>>
+      <div id='update_waist'>
+      <input type="text" class="form-control update_armor" id="waist" value=<?php echo($armor_stat['WAIST'] >= 0 ?  $armor_stat['WAIST'] : 0);?>>
+      <input class="form-check-input update_armor" type="checkbox" value='-1' id="waist_box_1" <?php echo($armor_stat['WAIST'] < 0 ? 'checked' : '');?>>
+      <input class="form-check-input update_armor" type="checkbox" value='-2' id="waist_box_1" <?php echo($armor_stat['WAIST'] < -1 ? 'checked' : '');?>>
+    </div>
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="legs">Legs</label>
-      <input type="text" class="form-control" id="legs" value=<?php echo($armor_stat['LEGS'] >= 0 ?  $armor_stat['LEGS'] : 0);?>>
-      <input class="form-check-input" type="checkbox" class="legs_box_1" <?php echo($armor_stat['LEGS'] < 0 ? 'checked' : '');?>>
-      <input class="form-check-input" type="checkbox" class="legs_box_1" <?php echo($armor_stat['LEGS'] < -1 ? 'checked' : '');?>>
+      <div id='update_legs'>
+      <input type="text" class="form-control update_armor" id="legs" value=<?php echo($armor_stat['LEGS'] >= 0 ?  $armor_stat['LEGS'] : 0);?>>
+      <input class="form-check-input update_armor" value='-1' type="checkbox" id="legs_box_1" <?php echo($armor_stat['LEGS'] < 0 ? 'checked' : '');?>>
+      <input class="form-check-input update_armor" value='-2' type="checkbox" id="legs_box_1" <?php echo($armor_stat['LEGS'] < -1 ? 'checked' : '');?>>
     </div>
+  </div>
 
                 </div>
       		</div>
@@ -141,6 +145,50 @@ var ischecked= $(this).is(':checked');
  
     }
       break;
+          case 'waist_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'waist_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
+      case 'legs_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'legs_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
   }
 
 }
@@ -166,6 +214,16 @@ $.ajax({
     case 'body_box_1':
     case 'body_box_2':
       var section = '#update_body';
+      break;
+            case 'waist':
+    case 'waist_box_1':
+    case 'waist_box_2':
+      var section = '#update_waist';
+      break;
+    case 'legs':
+    case 'legs_box_1':
+    case 'legs_box_2':
+      var section = '#update_legs';
       break;
   }
   $(section).html(data);

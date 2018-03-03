@@ -63,6 +63,48 @@ if($_POST['type'] == 'head' || $_POST['type'] == 'box_head_1'){
 
 
 
+}else if ($_POST['type'] == 'waist' || $_POST['type'] == 'waist_box_1' || $_POST['type'] == 'waist_box_2'){
+
+  $value = $_POST['value'];
+  $sql = "UPDATE armor_stat SET WAIST ='".$value."' WHERE ID_SURVIVOR='".$_POST['id']."'";
+
+  if ($con->query($sql) === TRUE) {
+      error_log('sucess');
+  } else {
+      error_log( "Error updating record: " . $con->error);
+  }
+
+    $waist = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
+
+
+  echo '<input type="text" class="form-control update_armor" id="waist" value='.($waist['WAIST'] >= 0 ?  $waist['WAIST'] : 0).'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-1" id="waist_box_1" '.($waist['WAIST'] < 0 ? 'checked' : '').'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-2" id="waist_box_2"  '.($waist['WAIST'] < -1 ? 'checked' : '').'>';
+
+
+
+
+}else if ($_POST['type'] == 'legs' || $_POST['type'] == 'legs_box_1' || $_POST['type'] == 'legs_box_2'){
+
+  $value = $_POST['value'];
+  $sql = "UPDATE armor_stat SET LEGS ='".$value."' WHERE ID_SURVIVOR='".$_POST['id']."'";
+
+  if ($con->query($sql) === TRUE) {
+      error_log('sucess');
+  } else {
+      error_log( "Error updating record: " . $con->error);
+  }
+
+    $legs = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
+
+
+  echo '<input type="text" class="form-control update_armor" id="legs" value='.($legs['LEGS'] >= 0 ?  $legs['LEGS'] : 0).'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-1" id="legs_box_1" '.($legs['LEGS'] < 0 ? 'checked' : '').'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-2" id="legs_box_2"  '.($legs['LEGS'] < -1 ? 'checked' : '').'>';
+
+
+
+
 }
 ?>
 <script>
@@ -132,6 +174,50 @@ var ischecked= $(this).is(':checked');
  
     }
       break;
+       case 'waist_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'waist_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
+       case 'legs_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'legs_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
   }
 
 }
@@ -156,6 +242,16 @@ var ischecked= $(this).is(':checked');
     case 'body_box_1':
     case 'body_box_2':
       var section = '#update_body';
+      break;
+        case 'waist':
+    case 'waist_box_1':
+    case 'waist_box_2':
+      var section = '#update_waist';
+      break;
+          case 'legs':
+    case 'legs_box_1':
+    case 'legs_box_2':
+      var section = '#update_legs';
       break;
 }
    $(section).html(data);
