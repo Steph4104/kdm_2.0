@@ -35,14 +35,17 @@
       <label for="head">Head</label>
 <div id='update_head'>
       <input type="text" class="form-control update_armor" id="head" value=<?php echo($armor_stat['HEAD'] >= 0 ?  $armor_stat['HEAD'] : 0);?> >
-      <input class=".form-check-inline update_armor" type="checkbox" value='-1' id="box_head_1"  <?php echo($armor_stat['HEAD'] < 0 ? 'checked' : '');?> >
+    <input class=".form-check-inline update_armor" type="checkbox" value='-1' id="box_head_1"  <?php echo($armor_stat['HEAD'] < 0 ? 'checked' : '');?> >
+      
     </div>
   </div>
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="arm">Arms</label>
+      <div id='update_arms'>
       <input type="text" class="form-control update_armor" id="arm" value=<?php echo($armor_stat['ARMS'] >= 0 ?  $armor_stat['ARMS'] : 0);?>>
-      <input class="form-check-input update_armor" type="checkbox" id="arm_box_1" class="arm_box_1" <?php echo($armor_stat['ARMS'] < 0 ? 'checked' : '');?>>
-      <input class="form-check-input update_armor" type="checkbox" id="arm_box_2" class="arm_box_2" <?php echo($armor_stat['ARMS'] < -1 ? 'checked' : '');?>>
+      <input class="form-check-input update_armor" type="checkbox" value='-1' id="arm_box_1" class="arm_box_1" <?php echo($armor_stat['ARMS'] < 0 ? 'checked' : '');?>>
+      <input class="form-check-input update_armor" type="checkbox" value='-2' id="arm_box_2" class="arm_box_2" <?php echo($armor_stat['ARMS'] < -1 ? 'checked' : '');?>>
+    </div>
     </div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
@@ -70,11 +73,53 @@
       		</div>
           <script>
 $(document).ready(function() {
- $('.update_armor').on('change', function() {
+ $('.update_armor').off().on('change', function() {
    alert('on change');
   var itemVal = $(this).val();
   var character = <?php echo $survivor_id; ?>;
   var itemID = $(this).attr('id');
+
+if ($(this).is('input:checkbox')){
+
+  switch (itemID) {
+    case 'box_head_1':
+var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+
+
+      break;
+
+    case 'arm_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'arm_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
+  }
+
+}
 
 $.ajax({
   url: "update_armor.php",
@@ -82,7 +127,18 @@ $.ajax({
   data: { value: itemVal, id : character, type: itemID} ,
 }).success(function(data){
 
-  var section = '#update_head';
+
+ switch (itemID) {
+    case 'head':
+    case 'box_head_1':
+      var section = '#update_head';
+      break;
+    case 'arm':
+    case 'arm_box_1':
+    case 'arm_box_2':
+      var section = '#update_arms';
+      break;
+  }
   $(section).html(data);
 });
 });
