@@ -36,8 +36,29 @@ if($_POST['type'] == 'head' || $_POST['type'] == 'box_head_1'){
 
 
   echo '<input type="text" class="form-control update_armor" id="arm" value='.($arms['ARMS'] >= 0 ?  $arms['ARMS'] : 0).'>';
-  echo' <input class="form-check-input update_armor" type="checkbox" value="-1" id="arm_box_1" class="arm_box_1" '.($arms['ARMS'] < 0 ? 'checked' : '').'>';
-  echo' <input class="form-check-input update_armor" type="checkbox" value="-2" id="arm_box_2" class="arm_box_2" '.($arms['ARMS'] < -1 ? 'checked' : '').'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-1" id="arm_box_1"'.($arms['ARMS'] < 0 ? 'checked' : '').'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-2" id="arm_box_2" '.($arms['ARMS'] < -1 ? 'checked' : '').'>';
+
+
+
+
+}else if ($_POST['type'] == 'body' || $_POST['type'] == 'body_box_1' || $_POST['type'] == 'body_box_2'){
+
+  $value = $_POST['value'];
+  $sql = "UPDATE armor_stat SET BODY ='".$value."' WHERE ID_SURVIVOR='".$_POST['id']."'";
+
+  if ($con->query($sql) === TRUE) {
+      error_log('sucess');
+  } else {
+      error_log( "Error updating record: " . $con->error);
+  }
+
+    $body = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
+
+
+  echo '<input type="text" class="form-control update_armor" id="body" value='.($body['BODY'] >= 0 ?  $body['BODY'] : 0).'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-1" id="body_box_1" '.($body['BODY'] < 0 ? 'checked' : '').'>';
+  echo' <input class="form-check-input update_armor" type="checkbox" value="-2" id="body_box_2"  '.($body['BODY'] < -1 ? 'checked' : '').'>';
 
 
 
@@ -89,6 +110,28 @@ var ischecked= $(this).is(':checked');
  
     }
       break;
+        case 'body_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'body_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
   }
 
 }
@@ -108,6 +151,11 @@ var ischecked= $(this).is(':checked');
     case 'arm_box_1':
     case 'arm_box_2':
       var section = '#update_arms';
+      break;
+    case 'body':
+    case 'body_box_1':
+    case 'body_box_2':
+      var section = '#update_body';
       break;
 }
    $(section).html(data);

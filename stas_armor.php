@@ -50,10 +50,12 @@
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="body">Body</label>
-      <input type="text" class="form-control" id="body" value=<?php echo($armor_stat['BODY'] >= 0 ?  $armor_stat['BODY'] : 0);?>>
-       <input class="form-check-input" type="checkbox" class="body_box_1" <?php echo($armor_stat['BODY'] < 0 ? 'checked' : '');?>>
-        <input class="form-check-input" type="checkbox" class="body_box_1" <?php echo($armor_stat['BODY'] < -1 ? 'checked' : '');?>>
+      <div id='update_body'>
+      <input type="text" class="form-control update_armor" id="body" value=<?php echo($armor_stat['BODY'] >= 0 ?  $armor_stat['BODY'] : 0);?>>
+       <input class="form-check-input update_armor" type="checkbox" value='-1' id="body_box_1" <?php echo($armor_stat['BODY'] < 0 ? 'checked' : '');?>>
+        <input class="form-check-input update_armor" type="checkbox" value='-2' id="body_box_2" <?php echo($armor_stat['BODY'] < -1 ? 'checked' : '');?>>
     </div>
+</div>
 
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="waist">Waist</label>
@@ -117,6 +119,28 @@ var ischecked= $(this).is(':checked');
  
     }
       break;
+    case 'body_box_1':
+
+    var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+ 
+    }
+    break;
+    case 'body_box_2':
+
+     var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = -1;
+
+    alert('uncheckd2 ' + itemVal);
+ 
+    }
+      break;
   }
 
 }
@@ -137,6 +161,11 @@ $.ajax({
     case 'arm_box_1':
     case 'arm_box_2':
       var section = '#update_arms';
+      break;
+      case 'body':
+    case 'body_box_1':
+    case 'body_box_2':
+      var section = '#update_body';
       break;
   }
   $(section).html(data);
