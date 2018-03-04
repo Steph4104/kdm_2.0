@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 29 Décembre 2017 à 21:44
+-- Généré le :  Dim 04 Mars 2018 à 20:24
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -37,7 +37,37 @@ CREATE TABLE `ability_impairements` (
 --
 
 INSERT INTO `ability_impairements` (`ID_SURVIVOR`, `ABILITIES`, `IMPAIREMENTS`) VALUES
-(1, 'Wonderful!!!!', 'But!....');
+(1, 'Wonderful!!!!111', 'But!....222');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `action`
+--
+
+CREATE TABLE `action` (
+  `ID_SURVIVOR` int(11) NOT NULL,
+  `DODGE` int(11) NOT NULL,
+  `DASH` int(11) NOT NULL,
+  `ENCOURAGE` int(11) NOT NULL,
+  `SURGE` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `action`
+--
+
+INSERT INTO `action` (`ID_SURVIVOR`, `DODGE`, `DASH`, `ENCOURAGE`, `SURGE`) VALUES
+(1, 1, 1, 1, 1),
+(2, 0, 0, 0, 0),
+(3, 1, 1, 0, 0),
+(4, 1, 0, 1, 0),
+(5, 1, 0, 1, 0),
+(6, 1, 0, 0, 0),
+(7, 1, 1, 1, 0),
+(8, 0, 0, 0, 1),
+(9, 0, 1, 1, 0),
+(10, 1, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -1114,11 +1144,11 @@ CREATE TABLE `armor_stat` (
 --
 
 INSERT INTO `armor_stat` (`ID_SURVIVOR`, `HEAD`, `ARMS`, `BODY`, `WAIST`, `LEGS`) VALUES
-(1, '-1', '-2', '0', '1', '2'),
+(1, '-1', '2', '0', '1', '2'),
 (2, '1', '1', '0', '-1', '-2'),
-(1, '-1', '-2', '0', '1', '2'),
+(1, '-1', '2', '0', '1', '2'),
 (2, '1', '1', '0', '-1', '-2'),
-(1, '-1', '-2', '0', '1', '2'),
+(1, '-1', '2', '0', '1', '2'),
 (2, '1', '1', '0', '-1', '-2');
 
 -- --------------------------------------------------------
@@ -1317,7 +1347,7 @@ CREATE TABLE `born` (
 
 INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1335,7 +1365,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1353,7 +1383,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1371,7 +1401,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1389,7 +1419,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1407,7 +1437,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1425,7 +1455,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1443,7 +1473,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1461,7 +1491,7 @@ INSERT INTO `born` (`ID_SURVIVOR`, `YEARS`) VALUES
 (17, 6),
 (18, 5),
 (1, 3),
-(2, 5),
+(2, 52),
 (3, 7),
 (4, 0),
 (5, 11),
@@ -1678,7 +1708,7 @@ CREATE TABLE `courage` (
 --
 
 INSERT INTO `courage` (`id`, `ID_SURVIVOR`, `COURAGE`, `OPTION_COURAGE`, `OTHER`) VALUES
-(1, 1, 3, 2, 'This is my test'),
+(1, 1, 3, 3, 'This is my test111'),
 (2, 2, 3, 3, ''),
 (3, 3, 6, 1, ''),
 (4, 4, 2, 0, ''),
@@ -1696,7 +1726,7 @@ INSERT INTO `courage` (`id`, `ID_SURVIVOR`, `COURAGE`, `OPTION_COURAGE`, `OTHER`
 (16, 16, 3, 2, ''),
 (17, 17, 2, 0, ''),
 (18, 18, 1, 0, ''),
-(19, 1, 3, 3, ''),
+(19, 1, 3, 3, 'This is my test111'),
 (20, 2, 3, 2, ''),
 (21, 3, 6, 1, ''),
 (22, 4, 2, 0, ''),
@@ -1714,7 +1744,7 @@ INSERT INTO `courage` (`id`, `ID_SURVIVOR`, `COURAGE`, `OPTION_COURAGE`, `OTHER`
 (34, 16, 3, 0, ''),
 (35, 17, 2, 0, ''),
 (36, 18, 1, 0, ''),
-(37, 1, 3, 0, ''),
+(37, 1, 3, 3, 'This is my test111'),
 (38, 2, 3, 0, ''),
 (39, 3, 6, 0, ''),
 (40, 4, 2, 0, ''),
@@ -3132,20 +3162,24 @@ INSERT INTO `fighting_arts` (`Nom`, `Rules`, `C`, `D`, `E`, `F`, `G`, `H`, `I`, 
 --
 
 CREATE TABLE `fighting_disroder` (
+  `id` int(11) NOT NULL,
   `ID_SURVIVOR` int(11) NOT NULL,
-  `ID_FIGHTINGS` int(11) NOT NULL,
-  `ID_DISORDER` int(11) NOT NULL,
-  `NUM_FIGHTING` int(11) NOT NULL,
-  `NUM_DISORDER` int(11) NOT NULL
+  `TYPE` varchar(30) NOT NULL,
+  `ID_ACTION` int(11) NOT NULL,
+  `POSITION` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `fighting_disroder`
 --
 
-INSERT INTO `fighting_disroder` (`ID_SURVIVOR`, `ID_FIGHTINGS`, `ID_DISORDER`, `NUM_FIGHTING`, `NUM_DISORDER`) VALUES
-(1, 12, 35, 1, 2),
-(1, 44, 1, 2, 1);
+INSERT INTO `fighting_disroder` (`id`, `ID_SURVIVOR`, `TYPE`, `ID_ACTION`, `POSITION`) VALUES
+(1, 1, 'fighting', 8, 1),
+(8, 1, 'disorder', 6, 2),
+(7, 1, 'disorder', 0, 1),
+(6, 1, 'fighting', 14, 2),
+(5, 1, 'fighting', 14, 3),
+(9, 1, 'disorder', 4, 3);
 
 -- --------------------------------------------------------
 
@@ -4541,7 +4575,7 @@ CREATE TABLE `other` (
 --
 
 INSERT INTO `other` (`ID_SURVIVOR`, `OTHER`) VALUES
-(1, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod imperdiet libero, ac accumsan erat volutpat molestie. Nam non ultrices libero, id tempus velit. Maecenas luctus porttitor nunc, ut tempor leo. Nullam at augue sit amet orci venenatis ornare. Aliquam a blandit arcu. Integer ullamcorper dignissim sem sed dapibus. Nam sagittis justo nec libero laoreet, vehicula vehicula lectus porta. Donec semper dolor nec nisi tristique, eget scelerisque leo suscipit. Pellentesque ac tortor fermentum, euismod lorem in, scelerisque ligula. Sed rhoncus egestas massa, eget mattis tellus posuere at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut tincidunt ex posuere tortor semper, at aliquam risus tristique. Fusce ac ex eget est dignissim ornare. In hac habitasse platea dictumst.');
+(1, '1111Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent euismod imperdiet libero, ac accumsan erat volutpat molestie. Nam non ultrices libero, id tempus velit. Maecenas luctus porttitor nunc, ut tempor leo. Nullam at augue sit amet orci venenatis ornare. Aliquam a blandit arcu. Integer ullamcorper dignissim sem sed dapibus. Nam sagittis justo nec libero laoreet, vehicula vehicula lectus porta. Donec semper dolor nec nisi tristique, eget scelerisque leo suscipit. Pellentesque ac tortor fermentum, euismod lorem in, scelerisque ligula. Sed rhoncus egestas massa, eget mattis tellus posuere at. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut tincidunt ex posuere tortor semper, at aliquam risus tristique. Fusce ac ex eget est dignissim ornare. In hac habitasse platea dictumst.');
 
 -- --------------------------------------------------------
 
@@ -4553,7 +4587,7 @@ CREATE TABLE `primary_stat` (
   `ID_SURVIVOR` int(11) NOT NULL,
   `MOVEMENT` int(11) NOT NULL,
   `ACCURACY` int(11) NOT NULL,
-  `STRENGHT` int(11) NOT NULL,
+  `STRENGTH` int(11) NOT NULL,
   `EVASION` int(11) NOT NULL,
   `LUCK` int(11) NOT NULL,
   `SPEED` int(11) NOT NULL
@@ -4563,8 +4597,8 @@ CREATE TABLE `primary_stat` (
 -- Contenu de la table `primary_stat`
 --
 
-INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `EVASION`, `LUCK`, `SPEED`) VALUES
-(1, 5, 2, 3, 4, 1, 0),
+INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGTH`, `EVASION`, `LUCK`, `SPEED`) VALUES
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4581,7 +4615,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4598,7 +4632,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4615,7 +4649,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4632,7 +4666,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4649,7 +4683,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4666,7 +4700,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4683,7 +4717,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -4700,7 +4734,7 @@ INSERT INTO `primary_stat` (`ID_SURVIVOR`, `MOVEMENT`, `ACCURACY`, `STRENGHT`, `
 (15, 5, 1, 2, 0, 0, 0),
 (16, 5, 0, 0, 0, 0, 0),
 (18, 4, 0, 1, 2, 1, 1),
-(1, 5, 2, 3, 4, 1, 0),
+(1, 6, 6, 6, 6, 6, 6),
 (2, 5, 2, 1, 1, 2, 1),
 (3, 5, 1, 2, 1, 0, 0),
 (4, 7, 2, 4, 4, 1, 0),
@@ -6849,7 +6883,7 @@ CREATE TABLE `sexe` (
 --
 
 INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6867,7 +6901,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6885,7 +6919,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6903,7 +6937,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6921,7 +6955,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6939,7 +6973,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6957,7 +6991,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6975,7 +7009,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -6993,7 +7027,7 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 (16, 'H'),
 (17, 'F'),
 (18, 'F'),
-(1, 'F'),
+(1, 'H'),
 (2, 'F'),
 (3, 'F'),
 (4, 'F'),
@@ -7020,176 +7054,177 @@ INSERT INTO `sexe` (`ID_SURVIVOR`, `SEXE`) VALUES
 
 CREATE TABLE `survivol` (
   `ID_SURVIVOR` int(11) NOT NULL,
-  `SURVIVOL` int(11) NOT NULL
+  `SURVIVOL` int(11) NOT NULL,
+  `SPEND` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `survivol`
 --
 
-INSERT INTO `survivol` (`ID_SURVIVOR`, `SURVIVOL`) VALUES
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5),
-(1, 1),
-(2, 6),
-(3, 5),
-(4, 2),
-(5, 1),
-(6, 4),
-(7, 7),
-(8, 1),
-(9, 4),
-(10, 5),
-(11, 0),
-(12, 1),
-(13, 2),
-(14, 4),
-(15, 9),
-(16, 4),
-(17, 7),
-(18, 5);
+INSERT INTO `survivol` (`ID_SURVIVOR`, `SURVIVOL`, `SPEND`) VALUES
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0),
+(1, 1, 0),
+(2, 67, 0),
+(3, 5, 0),
+(4, 2, 0),
+(5, 1, 0),
+(6, 4, 0),
+(7, 7, 0),
+(8, 1, 0),
+(9, 4, 0),
+(10, 5, 0),
+(11, 0, 0),
+(12, 1, 0),
+(13, 2, 0),
+(14, 4, 0),
+(15, 9, 0),
+(16, 4, 0),
+(17, 7, 0),
+(18, 5, 0);
 
 -- --------------------------------------------------------
 
@@ -7209,8 +7244,8 @@ CREATE TABLE `survivors` (
 --
 
 INSERT INTO `survivors` (`ID_SURVIVOR`, `NAME_SURVIVORS`, `SETTLEMENT_ID`, `SURNAME_SURVIVORS`) VALUES
-(1, 'Alpha1', 1, 'Mega'),
-(2, 'Faith', 1, 'Donald'),
+(1, 'Alpha111', 1, 'Mega'),
+(2, 'Faith2', 1, 'Donald'),
 (3, 'Boogie', 1, 'Mega'),
 (4, 'Plex', 1, 'Cyrus'),
 (5, 'Dave', 2, 'Mitourus'),
@@ -7245,7 +7280,7 @@ CREATE TABLE `understanding` (
 --
 
 INSERT INTO `understanding` (`id`, `ID_SURVIVOR`, `Understanding`, `OPTION_UNDERSTANDING`, `OTHER`) VALUES
-(1, 1, 4, 1, 'Something something something'),
+(1, 1, 4, 2, 'Something something something1111'),
 (2, 2, 0, 0, ''),
 (3, 3, 0, 0, ''),
 (4, 4, 1, 0, ''),
@@ -8438,6 +8473,12 @@ ALTER TABLE `disorder`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Index pour la table `fighting_disroder`
+--
+ALTER TABLE `fighting_disroder`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `settlement`
 --
 ALTER TABLE `settlement`
@@ -8475,6 +8516,11 @@ ALTER TABLE `courage`
 --
 ALTER TABLE `disorder`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+--
+-- AUTO_INCREMENT pour la table `fighting_disroder`
+--
+ALTER TABLE `fighting_disroder`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT pour la table `settlement`
 --
