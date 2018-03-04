@@ -95,6 +95,18 @@ $con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
         $table = 'primary_stat';
         $name = 'SPEED';
         break;
+    case 'abilities':
+        $table = 'ability_impairements';
+        $name = 'ABILITIES';
+        break;
+    case 'impairements':
+        $table = 'ability_impairements';
+        $name = 'IMPAIREMENTS';
+        break;
+    case 'other':
+        $table = 'other';
+        $name = 'OTHER';
+        break;
     default:
         break;
 }
