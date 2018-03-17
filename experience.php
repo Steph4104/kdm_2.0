@@ -33,11 +33,11 @@
           <label class="checkbox">Weapon proficiency:  </label>
           <?php
             for ($i = 1; $i <= $w_proficiency['PROFICIENCY']; $i++) {
-                echo ' <input type="checkbox" id="proficiency"  class="test2"  value="less,'.$w_proficiency['PROFICIENCY'].'" aria-label="..." checked> ';  			
-
+              echo ' <input type="checkbox" id="proficiency"  class="test2"  value="less,'.$w_proficiency['PROFICIENCY'].'" aria-label="..." checked> ';
+            }
         		$uncheck_proficiency = 15 - $w_proficiency['PROFICIENCY'];
             for ($s = 1; $s <= $uncheck_proficiency; $s++) {
-                echo ' <input type="checkbox" id="proficiency" class="test2"  value="more,'.$w_proficiency['PROFICIENCY'].'" aria-label="..." > ';
+              echo ' <input type="checkbox" id="proficiency" class="test2"  value="more,'.$w_proficiency['PROFICIENCY'].'" aria-label="..." > ';
         		}
           ?>
         </div>
@@ -119,7 +119,7 @@
             </div>
           </div>
           <div class="col-sm-8">
-            <textarea class="form-control test" id='understanding_other' rows="3"><?php echo $understanding['OTHER']?></textarea>
+            <textarea class="form-control test" id='understanding_other' rows="3"><?php echo $understanding['OTHER']; ?></textarea>
           </div>
         </div>
       </div>
