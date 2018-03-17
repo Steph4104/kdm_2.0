@@ -5,10 +5,10 @@
 
       <input type="text" class="form-control test"  id="movement" value=<?php echo $primary_stat['MOVEMENT'];?>>
     </div>
-                
+
               </div>
               <div class="col-sm-5">
-               
+
     <div class="form-group col-md-2" style='margin:0px;'>
       <label for="accuracy">Accuracy</label>
       <input type="text" class="form-control test" id="accuracy" value=<?php echo $primary_stat['ACCURACY'];?> >
@@ -36,7 +36,7 @@
 <div id='update_head'>
       <input type="text" class="form-control update_armor" id="head" value=<?php echo($armor_stat['HEAD'] >= 0 ?  $armor_stat['HEAD'] : 0);?> >
     <input class=".form-check-inline update_armor" type="checkbox" value='-1' id="box_head_1"  <?php echo($armor_stat['HEAD'] < 0 ? 'checked' : '');?> >
-      
+
     </div>
   </div>
     <div class="form-group col-md-2" style='margin:0px;'>
@@ -95,7 +95,7 @@ var ischecked= $(this).is(':checked');
           itemVal = 0;
 
     alert('uncheckd ' + itemVal);
- 
+
     }
 
 
@@ -109,7 +109,7 @@ var ischecked= $(this).is(':checked');
           itemVal = 0;
 
     alert('uncheckd ' + itemVal);
- 
+
     }
     break;
     case 'arm_box_2':
@@ -120,7 +120,7 @@ var ischecked= $(this).is(':checked');
           itemVal = -1;
 
     alert('uncheckd2 ' + itemVal);
- 
+
     }
       break;
     case 'body_box_1':
@@ -131,7 +131,7 @@ var ischecked= $(this).is(':checked');
           itemVal = 0;
 
     alert('uncheckd ' + itemVal);
- 
+
     }
     break;
     case 'body_box_2':
@@ -142,7 +142,7 @@ var ischecked= $(this).is(':checked');
           itemVal = -1;
 
     alert('uncheckd2 ' + itemVal);
- 
+
     }
       break;
           case 'waist_box_1':
@@ -153,7 +153,7 @@ var ischecked= $(this).is(':checked');
           itemVal = 0;
 
     alert('uncheckd ' + itemVal);
- 
+
     }
     break;
     case 'waist_box_2':
@@ -164,7 +164,7 @@ var ischecked= $(this).is(':checked');
           itemVal = -1;
 
     alert('uncheckd2 ' + itemVal);
- 
+
     }
       break;
       case 'legs_box_1':
@@ -175,7 +175,7 @@ var ischecked= $(this).is(':checked');
           itemVal = 0;
 
     alert('uncheckd ' + itemVal);
- 
+
     }
     break;
     case 'legs_box_2':
@@ -186,7 +186,7 @@ var ischecked= $(this).is(':checked');
           itemVal = -1;
 
     alert('uncheckd2 ' + itemVal);
- 
+
     }
       break;
   }
@@ -230,80 +230,6 @@ $.ajax({
 });
 });
 
-
-//  $(document).ready(function() {
-//   //$('#textbox1').val($(this).is(':checked'));
-//   var itemVal = $('#head').val();
-//   $('#box_head_1').change(function() {
-//       if($(this).is(":checked")) {
-//        console.log('text '+ itemVal);
-//        if(itemVal > 0){
-//       $('#head').val('0');
-         
-//        }
-//       }else{
-//        console.log('text2');
-//       }
-//      // $('#textbox1').val($(this).is(':checked'));        
-//   });
-//   $( "input" ).on('change', function() {
-//     var itemID = $(this).attr('id');
-//     var itemVal = $(this).val();
-
-//     if( $(this).is('input:text') ){
-//       console.log('text');
-//       switch(itemID) {
-//     case '#arm':
-//       if(itemVal >= 0){
-//         $('#arm_box_1').prop('checked', false);
-//         $('#arm_box_2').prop('checked', false);
-        
-//       }else if(itemVal = -1){
-//         $('#arm_box_1').prop('checked', true);
-//         $('#arm_box_2').prop('checked', false); 
-//       }else{
-//         $('#arm_box_1').prop('checked', true);
-//         $('#arm_box_2').prop('checked', true); 
-//       }
-//         break;
-//     case 'head':
-//     // console.log('box_head');
-//     // if(itemVal >= 0){
-//     //   $('#box_head_1').prop('checked', false)
-//     // }else if (itemVal< 0){
-//     //   $('#box_head_1').prop('checked', true)
-//     // }
-//         break;
-//     default:
-//   break;
-// }
-//     }else if( $(this).is('input:checkbox') ){
-//       console.log('checkbox');
-//       console.log(itemID);
-//       switch(itemID) {
-//         case 'box_head_1':
-//            if($('#box_head_1').prop('checked', true)){
-//           // console.log('head');
-//              $('#head').val('0');
-//           //   $('#box_head_1').prop('checked', false);
-//              }else{
-//              $('#box_head_1').prop('checked', false);
-               
-//                }//else if ($('#box_head_1').prop('checked', false)){
-//           //   $('#head').val('0');
-//           //   $('#box_head_1').prop('checked', true);
-//           //   }
-//         break;
-//     default:
-//   break;
-// }
-    
-//     }
-
-
-    
-   
-//   });
  });
-  
+
           </script>
