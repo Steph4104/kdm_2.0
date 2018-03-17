@@ -15,7 +15,7 @@ $(document).ready(function() {
     return "";
   }
 
-  $('.test').on('change', function() {
+  $('.test').off().on('change', function() {
       var character=getCookie("character");
       var itemID = $(this).attr('id');
       var itemVal = $(this).val();
