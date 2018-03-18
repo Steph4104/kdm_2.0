@@ -21,6 +21,9 @@
         <button>New Game</button></a>
       </p>
       <p><button>Existing game</button></p>
+      <p><a href="NewCharacter.php">
+        <button>New Character</button></a>
+      </p>
       <hr/>
       <form action='CharacterSheet' method='POST'>
         <label >Character: </label>
