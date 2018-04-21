@@ -73,7 +73,7 @@
         <div class="col-sm-4 ">
             <label for="SurvivalPts"  class="col-sm-5">Survival Points: </label>
             <div class="col-sm-3 ">
-              <input type="number" class="form-control test" id="SurvivalPts" placeholder=" # ">
+              <input type="number" class="form-control test" name="SurvivalPts" placeholder=" # ">
             </div>
         </div>
       </div>
@@ -82,29 +82,29 @@
           <div class="col-sm-1">
             <div class="form-group col-md-2 stats">
               <label for="movement">Movement</label>
-              <input type="text" class="form-control test"  id="movement">
+              <input type="text" class="form-control test"  name="movement">
             </div>
           </div>
           <div class="col-sm-5">
             <div class="form-group col-md-2" style='margin:0px;'>
               <label for="accuracy">Accuracy</label>
-              <input type="text" class="form-control test" id="accuracy">
+              <input type="text" class="form-control test" name="accuracy">
             </div>
             <div class="form-group col-md-2" style='margin:0px;'>
               <label for="strengh">Strengh</label>
-              <input type="text" class="form-control test" id="strength">
+              <input type="text" class="form-control test" name="strength">
             </div>
             <div class="form-group col-md-2" style='margin:0px;'>
               <label for="evasion">Evasion</label>
-              <input type="text" class="form-control test" id="evasion">
+              <input type="text" class="form-control test" name="evasion">
             </div>
             <div class="form-group col-md-2" style='margin:0px;'>
               <label for="luck">Luck</label>
-              <input type="text" class="form-control test" id="luck">
+              <input type="text" class="form-control test" name="luck">
             </div>
             <div class="form-group col-md-2" style='margin:0px;'>
               <label for="speed">Speed</label>
-              <input type="text" class="form-control test" id="speed">
+              <input type="text" class="form-control test" name="speed">
             </div>
           </div>
         </div>
@@ -113,7 +113,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label >Fighting art: </label>
-          <select class="form-control update_fighting" id='fighting_art_1'>
+          <select class="form-control update_fighting" name='fighting_art_1'>
             <?php
               $fighting_art = mysqli_query($con, "SELECT * FROM fighting_art ORDER BY ID ASC");
 
@@ -136,7 +136,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label >Fighting art: </label>
-          <select class="form-control update_fighting " id='fighting_art_2'>
+          <select class="form-control update_fighting " name='fighting_art_2'>
             <?php
               $fighting_art = mysqli_query($con, "SELECT * FROM fighting_art ORDER BY ID ASC");
 
@@ -159,7 +159,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label >Fighting art: </label>
-          <select class="form-control update_fighting" id='fighting_art_3'>
+          <select class="form-control update_fighting" name='fighting_art_3'>
             <?php
               $fighting_art = mysqli_query($con, "SELECT * FROM fighting_art ORDER BY ID ASC");
               while ($row = $fighting_art->fetch_assoc()) {
@@ -182,7 +182,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label >Disorder: </label>
-          <select class="form-control update_fighting" id='disorder_1'>
+          <select class="form-control update_fighting" name='disorder_1'>
             <?php
               $disorder_desc = mysqli_query($con, "SELECT * FROM disorder ORDER BY ID ASC");
               while ($row = $disorder_desc->fetch_assoc()) {
@@ -203,7 +203,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label >Disorder: </label>
-          <select class="form-control update_fighting" id='disorder_2'>
+          <select class="form-control update_fighting" name='disorder_2'>
             <?php
               $disorder_desc = mysqli_query($con, "SELECT * FROM disorder ORDER BY ID ASC");
               while ($row = $disorder_desc->fetch_assoc()) {
@@ -224,7 +224,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label> Disorder: </label>
-          <select class="form-control update_fighting" id='disorder_3'>
+          <select class="form-control update_fighting" name='disorder_3'>
             <?php
               $disorder_desc = mysqli_query($con, "SELECT * FROM disorder ORDER BY ID ASC");
               while ($row = $disorder_desc->fetch_assoc()) {
@@ -247,7 +247,7 @@
         <div class="panel-body">
           <div class="col-md-offset-1 col-sm-10">
             <label for="other">Other</label>
-            <textarea class="form-control test" id="other" rows="3"></textarea>
+            <textarea class="form-control test" name="other" rows="3"></textarea>
           </div>
         </div>
       </div>
