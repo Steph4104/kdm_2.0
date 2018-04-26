@@ -9,6 +9,13 @@
     echo "Failed to connect to MySQL: " . mysqli_connect_error();
   }
 
+  $fighting_art_num1 = '';
+  $fighting_art_num2 = '';
+  $fighting_art_num3 = '';
+  $disorder_num1 = '';
+  $disorder_num2 = '';
+  $disorder_num3 = '';
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -113,7 +120,7 @@
         <div class="form-group col-sm-4">
           <br/>
           <label >Fighting art: </label>
-          <select class="form-control update_fighting" name='fighting_art_1'>
+          <select class="form-control update_fighting" name='fighting_art_1' id='fighting_art_1'>
             <?php
               $fighting_art = mysqli_query($con, "SELECT * FROM fighting_art ORDER BY ID ASC");
 
@@ -256,3 +263,21 @@
   </form>
   </body>
 </html>
+<script>
+  $(document).ready(function() {
+		$('.update_fighting').bind('change', function() {
+			var itemVal = $(this).val();
+			var itemID = $(this).attr('id');
+console.log(itemVal);
+		  $.ajax({
+			 	url: "update_fight.php",
+			 	type: 'POST',
+			 	data: { value: itemVal, type: itemID} ,
+		  }).success(function(data){
+         var section = '#update_' + itemID;
+         console.log(section);
+			 	$(section).html(data);
+		  });
+		});
+	});
+</script>

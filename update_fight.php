@@ -1,7 +1,7 @@
 <?php
 	require_once 'database.php';
 	$con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
-	$survivor_id = $_POST['id'];
+	$survivor_id = 0;
 
 	if($_POST['type'] == 'fighting_art_1' || $_POST['type'] == 'fighting_art_2' || $_POST['type'] == 'fighting_art_3'){
 		switch ($_POST['type']) {
@@ -29,7 +29,7 @@
 		} else {
 		  error_log( "Error updating record: " . $con->error);
 		}
-	  $survivor_id = $_POST['id'];
+	  $survivor_id = 0;
 	  $fighting_description1 = mysqli_fetch_assoc(mysqli_query($con, "SELECT Rules FROM fighting_art WHERE ID = $value"));
 
 	  echo '<textarea class="form-control" id="textarea_fighting_art_1" rows="3">'.(isset($fighting_description1['Rules']) ? $fighting_description1['Rules'] : '').'</textarea>';

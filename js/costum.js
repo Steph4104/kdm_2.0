@@ -15,7 +15,7 @@ $(document).ready(function() {
     return "";
   }
 
-  $('.test').off().on('change', function() {
+  $('.test').bind('change', function() {
       var character=getCookie("character");
       var itemID = $(this).attr('id');
       var itemVal = $(this).val();
@@ -38,7 +38,7 @@ $(document).ready(function() {
     xmlhttp.send("info=" + info);
   }
 
-  $('.test2').off().on('click', function() {
+  $('.test2').bind('click', function() {
     var itemVal = $(this).val();
     var character=getCookie("character");
     var itemID = $(this).attr('id');
