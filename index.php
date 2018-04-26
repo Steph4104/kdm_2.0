@@ -25,7 +25,7 @@
         <button>New Character</button></a>
       </p>
       <hr/>
-      <form action='CharacterSheet' method='POST'>
+      <form action='CharacterSheet.php' method='POST'>
         <label >Character: </label>
         <select class="form-control" name='characterName'>
           <?php
