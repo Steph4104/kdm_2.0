@@ -18,7 +18,6 @@ if($_POST['characterName']){
 
 $name = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM survivors WHERE ID_SURVIVOR = $survivor_id"));
 $sexe = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM sexe WHERE ID_SURVIVOR = $survivor_id"));
-$born = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM born WHERE ID_SURVIVOR = $survivor_id"));
 $dead = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM dead WHERE ID_SURVIVOR = $survivor_id"));
 $survivol = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM survivol WHERE ID_SURVIVOR = $survivor_id"));
 $action = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM action WHERE ID_SURVIVOR = $survivor_id"));
