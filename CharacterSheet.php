@@ -154,8 +154,6 @@ $other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM OTHER WHERE ID_SUR
           	</div>
       	</div>
       </div>
-        <button type="button" class="btn btn-success">Submit</button>
-        <button type="button" class="btn btn-danger">Cancel</button>
     </div> <!-- /container -->
   </form>
 
