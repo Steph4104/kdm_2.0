@@ -25,7 +25,7 @@
   $other = $_POST['other'];
 
 
-  $db_name = "INSERT INTO `survivors`(`NAME_SURVIVORS`) VALUES ('".$name."')";
+  $db_name = "INSERT IGNORE INTO `survivors`(`NAME_SURVIVORS`) VALUES ('".$name."')";
 
 if (!mysqli_query($con, $db_name)) {
     echo "Error: " . $db_name . "<br>" . mysqli_error($con);
@@ -73,6 +73,12 @@ $db_other = "INSERT INTO `other`(`ID_SURVIVOR`,`OTHER`) VALUES ('".$id_survivor.
 
 if (!mysqli_query($con, $db_other)) {
      echo "Error: " . $db_other . "<br>" . mysqli_error($con);
+}
+
+$db_armor = "INSERT INTO `armor_stat`(`ID_SURVIVOR`,`HEAD`,`ARMS`,`BODY`,`WAIST`,`LEGS`) VALUES ('".$id_survivor."', '0','0','0','0','0')";
+
+if (!mysqli_query($con, $db_armor)) {
+     echo "Error: " . $db_armor . "<br>" . mysqli_error($con);
 }
 
 ?>
