@@ -62,7 +62,7 @@
         <div class="col-sm-6" style="padding-top:12px;">
           <label for="CharcterInfoName"  class="col-sm-1">Name: </label>
           <div class="col-sm-5">
-            <input type="name" class="form-control test" name="name" id="CharcterInfoName">
+            <input type="name" class="form-control test" name="name" id="CharcterInfoName2">
           </div>
         </div>
         <div class="col-sm-2">

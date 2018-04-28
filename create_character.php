@@ -24,8 +24,7 @@
   $disorder_3 = $_POST['disorder_3'];
   $other = $_POST['other'];
 
-
-  $db_name = "INSERT IGNORE INTO `survivors`(`NAME_SURVIVORS`) VALUES ('".$name."')";
+  $db_name = "INSERT INTO `survivors`(`NAME_SURVIVORS`) VALUES ('".$name."')";
 
 if (!mysqli_query($con, $db_name)) {
     echo "Error: " . $db_name . "<br>" . mysqli_error($con);
@@ -79,6 +78,28 @@ $db_armor = "INSERT INTO `armor_stat`(`ID_SURVIVOR`,`HEAD`,`ARMS`,`BODY`,`WAIST`
 
 if (!mysqli_query($con, $db_armor)) {
      echo "Error: " . $db_armor . "<br>" . mysqli_error($con);
+}
+
+$hunt_xp = "INSERT INTO `hunt_xp`(`ID_SURVIVOR`,`XP`) VALUES ('".$id_survivor."','0')";
+
+if (!mysqli_query($con, $hunt_xp)) {
+     echo "Error: " . $hunt_xp . "<br>" . mysqli_error($con);
+}
+
+$w_proficiency = "INSERT INTO `w_proficiency`(`ID_SURVIVOR`,`PROFICIENCY`) VALUES ('".$id_survivor."','0')";
+
+if (!mysqli_query($con, $w_proficiency)) {
+     echo "Error: " . $w_proficiency . "<br>" . mysqli_error($con);
+}
+$courage = "INSERT INTO `courage`(`ID_SURVIVOR`,`COURAGE`) VALUES ('".$id_survivor."','0')";
+
+if (!mysqli_query($con, $courage)) {
+     echo "Error: " . $courage . "<br>" . mysqli_error($con);
+}
+$understanding = "INSERT INTO `understanding`(`ID_SURVIVOR`,`Understanding`) VALUES ('".$id_survivor."','0')";
+
+if (!mysqli_query($con, $understanding)) {
+     echo "Error: " . $understanding . "<br>" . mysqli_error($con);
 }
 
 ?>
