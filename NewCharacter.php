@@ -86,6 +86,12 @@
       </div>
       <div class='row'>
         <div class="panel-body">
+        <div class="col-sm-1">
+            <div class="form-group col-md-2 stats">
+              <label for="insanity">Insanity</label>
+              <input type="text" class="form-control test"  name="insanity">
+            </div>
+          </div>
           <div class="col-sm-1">
             <div class="form-group col-md-2 stats">
               <label for="movement">Movement</label>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Jeu 26 Avril 2018 à 01:54
+-- Généré le :  Mar 08 Mai 2018 à 02:20
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -86,27 +86,15 @@ CREATE TABLE `born` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `brain`
---
-
-CREATE TABLE `brain` (
-  `ID_SURVIVOR` int(11) NOT NULL,
-  `BRAIN` int(11) NOT NULL,
-  `CASE` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `courage`
 --
 
 CREATE TABLE `courage` (
   `id` int(11) NOT NULL,
   `ID_SURVIVOR` int(11) NOT NULL,
-  `COURAGE` int(11) NOT NULL,
-  `OPTION_COURAGE` int(11) NOT NULL,
-  `OTHER` text NOT NULL
+  `COURAGE` int(11) NOT NULL DEFAULT '0',
+  `OPTION_COURAGE` int(11) NOT NULL DEFAULT '0',
+  `OTHER` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -267,21 +255,6 @@ CREATE TABLE `fighting_disroder` (
   `POSITION` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `fighting_disroder`
---
-
-INSERT INTO `fighting_disroder` (`id`, `ID_SURVIVOR`, `TYPE`, `ID_ACTION`, `POSITION`) VALUES
-(65, 25, 'fighting', 0, 1),
-(66, 25, 'fighting', 0, 2),
-(67, 25, 'fighting', 0, 3),
-(68, 25, 'disorder', 0, 1),
-(69, 25, 'disorder', 0, 2),
-(70, 25, 'disorder', 0, 3),
-(71, 0, 'fighting', 2, 1),
-(72, 0, 'fighting', 0, 1),
-(73, 0, 'disorder', 0, 1);
-
 -- --------------------------------------------------------
 
 --
@@ -309,6 +282,18 @@ CREATE TABLE `imperments` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `insanity`
+--
+
+CREATE TABLE `insanity` (
+  `id` int(11) NOT NULL,
+  `ID_SURVIVOR` int(11) NOT NULL,
+  `INSANITY` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `other`
 --
 
@@ -316,13 +301,6 @@ CREATE TABLE `other` (
   `ID_SURVIVOR` int(11) NOT NULL,
   `OTHER` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `other`
---
-
-INSERT INTO `other` (`ID_SURVIVOR`, `OTHER`) VALUES
-(25, '');
 
 -- --------------------------------------------------------
 
@@ -339,6 +317,46 @@ CREATE TABLE `primary_stat` (
   `LUCK` int(11) NOT NULL DEFAULT '0',
   `SPEED` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `secret_fighting_art`
+--
+
+CREATE TABLE `secret_fighting_art` (
+  `id` int(11) NOT NULL,
+  `Nom` text NOT NULL,
+  `Rules` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `secret_fighting_art`
+--
+
+INSERT INTO `secret_fighting_art` (`id`, `Nom`, `Rules`) VALUES
+(1, 'Nom', 'Rules'),
+(2, 'Acanthus Doctor', 'You may wear up to 3 Satchel gear cards.   When you depart, if you are not wearing any armor, for each (Green Affinity) you have, gain +1 strength token and add 1 to all hit locations.'),
+(3, 'Ageless Apprentice', 'When you gain Hunt XP, you may decide not to gain it.   When you depart, you may rotate up to 3 gear cards in your gear grid. This changes the locations of their affinities and arrows. Otherwise, the gear functions normally.'),
+(4, 'Altered Destiny', 'If you would gain a negative attribute token, gain a positive attribute token of that type instead.'),
+(5, 'Beetle Strength', 'Once per showdown, you may spend (ACTIVATION) to shove an adjacent obstacle terrain. If you do, move the terrain directly away from you in a straight line until it encounters a board edge or another obstacle terrain. Any monsters the terrain passes over suffer a wound, and any survivors it collides with suffer knockback 7.   The display of strength is so exhausting it ages you. You are knocked down and gain +1 Hunt XP.'),
+(6, 'Clarity of Darkness', 'At the start of the showdown, gain the (Slendermen) Path of Gloom survivor status card.   There is a deadly, otherworldly presence about you. Other survivors cannot voluntarily end their movement adjacent to you.'),
+(7, 'Courtly Screenwriter', 'At the start of the showdown, secretly write down on a scrap of paper which survivors will live and who will deal the killing blow. During the aftermath, if your predictions were correct, raise the settlement\'s Survival Limit by 1.'),
+(8, 'Eternal Will', 'Gain +1 accuracy and +1 strength for each permanent injury you have.   You may always depart, even when retired.'),
+(9, 'Fencing', 'Ignore Parry when attempting to wound hit locations. (Attemps to wound these locations normally.)   When a monster attacks you, roll 1d10. On a 6+, ignore 1 hit. Limit, once per round.'),
+(10, 'Frozen Star', 'Once per round, you may spend 1 survival to freeze a monster\'s brain. They gain -2 accuracy until the end of the round.   Once per round, you may spend 1 survival to freeze a survivor\'s brain, killing them instantly. They die.'),
+(11, 'Hellfire', 'You cannot lose or remove this fighting art.   Gain +1 strength for each (Red Affinity) you have. You cannot be nominated for Intimacy. You ignore Extreme Heat.   At the start of your act, lose 1 survival. At the end of your act, if your survival is 0 or you have any +1 strength tokens, your organs cook themselves and you die.'),
+(12, 'Immovable Object', 'If you are on an unoccupied space, you stand firm in the face of any force. You cannot be knocked down and may ignore knockback.   (if you occupy the same space as a monster, impassable terrain tile, or another survivor, you are knocked down and suffer knockback.)'),
+(13, 'King of a Thousand Battles', 'Gain +2 accuracy, +2 strength, +2 evasion.   You may dodge any number of times in a round   Only 1 survivor may have this Secret Fighting Art.'),
+(14, 'King\'s Step', 'Whenever you attack, you may discard any number of Battle Pressure hit locations drawn and draw an equal number of new hit locations.   Whenever you attack, after drawing hit locations, but before rolling to wound, you may choose one hit location drawn and discard it to draw a new hit location.   Traps will cancel these effects.'),
+(15, 'Legendary Lungs', 'Once per attack, for each successful hit, make an additional attack roll.'),
+(16, 'Necromancer', 'When you depart, gain +1 to all hit locations for each gear card in your grid with the symbol keyword.   If you would roll on the severe injury table, roll on the Worm Trauma table on the others side of this card instead. (Specified severe injuries remain unchanged)   When you die or forget this, the settlement gain the knowlegde Worm Innovation.'),
+(17, 'Red Fist', 'At the start of each showdown, each survivor gains +1 strength token.   Survivors may spend +1 strength tokens in place of survival.'),
+(18, 'Sun Eater', 'Your body mysteriously absorbs light. At the start of the showdown, gain survival up to the settlement\' Survival Limit.   If you have any +1 strength tokens, you may spend them all to perform the surge survival action (following all of its normal rules and restrictions).'),
+(19, 'Suppressed Shadow', 'You no longer cast a shadow and you never hesitate. Ignore First Strike.   On a Perfect hit, your first wound attempt of the attack automatically succeeds and inflict a critical wound.   If you die during the showdown, place a Shade minion in the space you occupied.'),
+(20, 'Swordsman\'s Promise', 'At the start of each showdown, gain survival up to your settlement\'s survival limit if you have a sword in your gear grid.'),
+(21, 'True Blade', 'All swords in your gear grid gain deadly.   Gain +3 luck when attacking with a sword if youu have the Ghostly Beauty and Narcissistic disorders.'),
+(22, 'Zero Presence', 'Gain +1 strength when attacking a monster from its blind spot.   Whenever you attack a monster, you are always considered to be in its blind spot.');
 
 -- --------------------------------------------------------
 
@@ -373,7 +391,7 @@ CREATE TABLE `sexe` (
 
 CREATE TABLE `survivol` (
   `ID_SURVIVOR` int(11) NOT NULL,
-  `SURVIVOL` int(11) NOT NULL,
+  `SURVIVOL` int(11) NOT NULL DEFAULT '0',
   `SPEND` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -398,8 +416,8 @@ CREATE TABLE `understanding` (
   `id` int(11) NOT NULL,
   `ID_SURVIVOR` int(11) NOT NULL,
   `Understanding` int(11) NOT NULL,
-  `OPTION_UNDERSTANDING` int(11) NOT NULL,
-  `OTHER` text NOT NULL
+  `OPTION_UNDERSTANDING` int(11) NOT NULL DEFAULT '0',
+  `OTHER` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -409,6 +427,7 @@ CREATE TABLE `understanding` (
 --
 
 CREATE TABLE `weapon` (
+  `id` int(11) NOT NULL,
   `Nom` varchar(50) NOT NULL,
   `Specialization` text NOT NULL,
   `Master` text NOT NULL
@@ -418,20 +437,20 @@ CREATE TABLE `weapon` (
 -- Contenu de la table `weapon`
 --
 
-INSERT INTO `weapon` (`Nom`, `Specialization`, `Master`) VALUES
-('Bow', 'When attacking with a bow, you may reroll any misses once.   Limit, once per attack.', 'If you are a Bow Master, all Bows in your gear grid gain Deadly 2. In addition, ignore cumbersome on all Bows'),
-('Club', 'All clubs in your gear grid gain paired. Cannot use this with two-handed clubs.', 'Iy you are a Club Master, all Clubs in your gear grid gain Savage. On a Perfect Hit with a Club, gain +3 strength until the end of the attack.'),
-('Dagger', 'When attacking with a Dagger, if a wound attempt fails, after perfoming any reactions, you may discard another drawn hit location card to attempt to wound that hit location again.   Limit, once per attack.', 'After a wounded hit locations is discarded, a Dagger Master who is adjacent to the attacker and the wounded monster may spend 1 survival to re-draw the wounded hit location and attempt to wound with a dagger. Treat monster reactions on the re-drawn hit location card normally.'),
-('Fist & Tooth', 'You may stand (if knocked down) at the start of the monster\'s turn or the survivur\'s turn.   Limit once per round.', 'While a survivor is a Fist & Tooth Master, they gain +2 permanent accuracy and +2 permanent strength (they receive this bonus even when not attacking with Fist & Tooth).'),
-('Grand Weapon', 'When attacking with a grand weapon, gain +1 accuracy.   When attacking with a grand weapon during your act, if you critically wound, the monster is knocked down.', 'When a Grand Weapon Master perfectly hits with a grand weapon, cancel all reactions for that attack.'),
-('Katana', 'You may not select this as your weapon type.   If you are blind and have 4+ levels of Katana proficiency, gain the following : On your first Perfect hit each attack with a Katana, do not draw a hit location, The monsters suffers 1 wound.', 'When a survivor reaches Katana Mastery, they leave the settlement forever, heedind the call of the storm to hone their art.   Before the master leaves, you may nominate a survivor. Set that survivor\'s weapon type to Katana and their weapon proficiency level to 1.'),
-('Katar', 'When attacking with a Katar, cancel reactions on the first selected hit location.', 'If you are a Katar Master, gain a +1 evasion token on a perfect hit with a katar. When you are knocked down, remove all +1 evasion tokens.'),
-('Scythe', 'When you critically wound with a scythe, roll 1d10. On a 6+, shuffle the hit location deck (do not shuffle unresolved hit locations).   Limit, once per round.', 'At the start of a Scythe Master\'s act, if they are insane, they gain +1 (ACTIVATION), which they may only spend to activate scythes.'),
-('Shield', 'While a shield is in your gear grid, you are no longer knocked down after collision with a monster.   While a shield is in your gear grid, add 1 to all hit locations.', 'When a Shield Master is adjacent to a survivor that is targeted by a monster, they may swap spaces on the board with the survivor and become the target instead. The master must have a shield to perform this.'),
-('Spear', 'When attacking with a spear, if you draw a trap, roll 1d10. On a 7+, cancel the trap. Discard it, then reshuffle the hit location discard into the hit location deck and draw a new card.   Limit once per round.', 'Whenever a Spear Master hits a monster with a Spear, they may spend 1 survival to gain the Priority Target token. If they made the hit from directly behind another survivor, that survivor gains the Priority Target token instead'),
-('Sword', 'When attacking with a sword, after drawing hit locations, make a wound attempt and then select a hit location to resolve with that result.   Limit once per attack.', 'A Sword master gains +1 accuracy, +1 strength, and +1 speed when attacking with a Sword.'),
-('Twilight Sword', 'This sentient sword improves as it\'s used. Gain the effects as proficiency rank increases.   Rank 2 = Ignore Cumbersome on twilight Sword.   Rank 4 = When attacking with the Twilight Sword, ignore slow and gain +2 speed.   Rank 6 = Twilight Sword gains Deadly.', 'Any survivor who attains Twilight Sword Mastery leaves the settlement forever in pursuit of a higher purpose. Remove them from the settlement\'s population.   You may place the master\'s Twilight Sword in another survivor\'s gear grid or archive it.'),
-('Whip', 'When you wound with a whip, instead of moving the top card of the AI deck into the wound stack, you may move the top card of the AI discard pile   Limit once per attack.', 'Whip Master gain +5 strength when attacking with a Whip.');
+INSERT INTO `weapon` (`id`, `Nom`, `Specialization`, `Master`) VALUES
+(1, 'Bow', 'When attacking with a bow, you may reroll any misses once.   Limit, once per attack.', 'If you are a Bow Master, all Bows in your gear grid gain Deadly 2. In addition, ignore cumbersome on all Bows'),
+(2, 'Club', 'All clubs in your gear grid gain paired. Cannot use this with two-handed clubs.', 'Iy you are a Club Master, all Clubs in your gear grid gain Savage. On a Perfect Hit with a Club, gain +3 strength until the end of the attack.'),
+(3, 'Dagger', 'When attacking with a Dagger, if a wound attempt fails, after perfoming any reactions, you may discard another drawn hit location card to attempt to wound that hit location again.   Limit, once per attack.', 'After a wounded hit locations is discarded, a Dagger Master who is adjacent to the attacker and the wounded monster may spend 1 survival to re-draw the wounded hit location and attempt to wound with a dagger. Treat monster reactions on the re-drawn hit location card normally.'),
+(4, 'Fist & Tooth', 'You may stand (if knocked down) at the start of the monster\'s turn or the survivur\'s turn.   Limit once per round.', 'While a survivor is a Fist & Tooth Master, they gain +2 permanent accuracy and +2 permanent strength (they receive this bonus even when not attacking with Fist & Tooth).'),
+(5, 'Grand Weapon', 'When attacking with a grand weapon, gain +1 accuracy.   When attacking with a grand weapon during your act, if you critically wound, the monster is knocked down.', 'When a Grand Weapon Master perfectly hits with a grand weapon, cancel all reactions for that attack.'),
+(6, 'Katana', 'You may not select this as your weapon type.   If you are blind and have 4+ levels of Katana proficiency, gain the following : On your first Perfect hit each attack with a Katana, do not draw a hit location, The monsters suffers 1 wound.', 'When a survivor reaches Katana Mastery, they leave the settlement forever, heedind the call of the storm to hone their art.   Before the master leaves, you may nominate a survivor. Set that survivor\'s weapon type to Katana and their weapon proficiency level to 1.'),
+(7, 'Katar', 'When attacking with a Katar, cancel reactions on the first selected hit location.', 'If you are a Katar Master, gain a +1 evasion token on a perfect hit with a katar. When you are knocked down, remove all +1 evasion tokens.'),
+(8, 'Scythe', 'When you critically wound with a scythe, roll 1d10. On a 6+, shuffle the hit location deck (do not shuffle unresolved hit locations).   Limit, once per round.', 'At the start of a Scythe Master\'s act, if they are insane, they gain +1 (ACTIVATION), which they may only spend to activate scythes.'),
+(9, 'Shield', 'While a shield is in your gear grid, you are no longer knocked down after collision with a monster.   While a shield is in your gear grid, add 1 to all hit locations.', 'When a Shield Master is adjacent to a survivor that is targeted by a monster, they may swap spaces on the board with the survivor and become the target instead. The master must have a shield to perform this.'),
+(10, 'Spear', 'When attacking with a spear, if you draw a trap, roll 1d10. On a 7+, cancel the trap. Discard it, then reshuffle the hit location discard into the hit location deck and draw a new card.   Limit once per round.', 'Whenever a Spear Master hits a monster with a Spear, they may spend 1 survival to gain the Priority Target token. If they made the hit from directly behind another survivor, that survivor gains the Priority Target token instead'),
+(11, 'Sword', 'When attacking with a sword, after drawing hit locations, make a wound attempt and then select a hit location to resolve with that result.   Limit once per attack.', 'A Sword master gains +1 accuracy, +1 strength, and +1 speed when attacking with a Sword.'),
+(12, 'Twilight Sword', 'This sentient sword improves as it\'s used. Gain the effects as proficiency rank increases.   Rank 2 = Ignore Cumbersome on twilight Sword.   Rank 4 = When attacking with the Twilight Sword, ignore slow and gain +2 speed.   Rank 6 = Twilight Sword gains Deadly.', 'Any survivor who attains Twilight Sword Mastery leaves the settlement forever in pursuit of a higher purpose. Remove them from the settlement\'s population.   You may place the master\'s Twilight Sword in another survivor\'s gear grid or archive it.'),
+(13, 'Whip', 'When you wound with a whip, instead of moving the top card of the AI deck into the wound stack, you may move the top card of the AI discard pile   Limit once per attack.', 'Whip Master gain +5 strength when attacking with a Whip.');
 
 -- --------------------------------------------------------
 
@@ -442,9 +461,8 @@ INSERT INTO `weapon` (`Nom`, `Specialization`, `Master`) VALUES
 CREATE TABLE `w_proficiency` (
   `id` int(11) NOT NULL,
   `ID_SURVIVOR` int(11) NOT NULL,
-  `PROFICIENCY` int(11) NOT NULL,
-  `TYPE` int(11) NOT NULL,
-  `EXPENTION` int(11) NOT NULL
+  `PROFICIENCY` int(11) NOT NULL DEFAULT '0',
+  `TYPE` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -470,15 +488,35 @@ ALTER TABLE `fighting_disroder`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `insanity`
+--
+ALTER TABLE `insanity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `secret_fighting_art`
+--
+ALTER TABLE `secret_fighting_art`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `survivors`
 --
 ALTER TABLE `survivors`
-  ADD PRIMARY KEY (`ID_SURVIVOR`);
+  ADD PRIMARY KEY (`ID_SURVIVOR`),
+  ADD UNIQUE KEY `NAME_SURVIVORS` (`NAME_SURVIVORS`),
+  ADD UNIQUE KEY `ID_SURVIVOR` (`ID_SURVIVOR`);
 
 --
 -- Index pour la table `understanding`
 --
 ALTER TABLE `understanding`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `weapon`
+--
+ALTER TABLE `weapon`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -495,7 +533,7 @@ ALTER TABLE `w_proficiency`
 -- AUTO_INCREMENT pour la table `courage`
 --
 ALTER TABLE `courage`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT pour la table `disorder`
 --
@@ -505,7 +543,17 @@ ALTER TABLE `disorder`
 -- AUTO_INCREMENT pour la table `fighting_disroder`
 --
 ALTER TABLE `fighting_disroder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `insanity`
+--
+ALTER TABLE `insanity`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT pour la table `secret_fighting_art`
+--
+ALTER TABLE `secret_fighting_art`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT pour la table `survivors`
 --
@@ -515,12 +563,17 @@ ALTER TABLE `survivors`
 -- AUTO_INCREMENT pour la table `understanding`
 --
 ALTER TABLE `understanding`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `weapon`
+--
+ALTER TABLE `weapon`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT pour la table `w_proficiency`
 --
 ALTER TABLE `w_proficiency`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

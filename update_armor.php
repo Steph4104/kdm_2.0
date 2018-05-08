@@ -3,7 +3,19 @@
   $con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
   $survivor_id = $_POST['id'];
 
-  if($_POST['type'] == 'head' || $_POST['type'] == 'box_head_1'){
+  if($_POST['type'] == 'insanity' || $_POST['type'] == 'box_insanity_1'){
+    $value = $_POST['value'];
+	  $sql = "UPDATE insanity SET INSANITY ='".$value."' WHERE ID_SURVIVOR='".$_POST['id']."'";
+    if ($con->query($sql) === TRUE) {
+	    error_log('sucess');
+	   } else {
+	    error_log( "Error updating record: " . $con->error);
+	   }
+    $insanity = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM insanity WHERE ID_SURVIVOR = $survivor_id"));
+	  echo '<input type="text" style="width:5%;" class="form-control update_armor" id="insanity" value='.($insanity['INSANITY'] >= 0 ?  $insanity['INSANITY'] : 0).' >';
+	  echo '<input class=".form-check-inline update_armor" type="checkbox" value="-1" id="box_insanity_1"  '.($insanity['INSANITY'] <= -1 ? 'checked' : '').' >';
+  
+  } else if($_POST['type'] == 'head' || $_POST['type'] == 'box_head_1'){
     $value = $_POST['value'];
 	  $sql = "UPDATE armor_stat SET HEAD ='".$value."' WHERE ID_SURVIVOR='".$_POST['id']."'";
     if ($con->query($sql) === TRUE) {
@@ -81,8 +93,23 @@
     var character = <?php echo $survivor_id; ?>;
     var itemID = $(this).attr('id');
 
+    if(itemID == 'insanity' && itemVal == '3'){
+    alert('You are INSANE!');
+  }
     if ($(this).is('input:checkbox')){
       switch (itemID) {
+        case 'box_insanity_1':
+var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+
+    }
+
+
+      break;
         case 'box_head_1':
           var ischecked= $(this).is(':checked');
           if(!ischecked){
@@ -146,6 +173,10 @@
      data: { value: itemVal, id : character, type: itemID} ,
     }).success(function(data){
       switch (itemID) {
+        case 'insanity':
+    case 'box_insanity_1':
+      var section = '#update_insanity';
+      break;
         case 'head':
         case 'box_head_1':
           var section = '#update_head';

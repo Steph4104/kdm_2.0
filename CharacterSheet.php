@@ -28,7 +28,8 @@ $w_proficiency = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM w_proficie
 $primary_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM primary_stat WHERE ID_SURVIVOR = $survivor_id"));
 $armor_stat = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM armor_stat WHERE ID_SURVIVOR = $survivor_id"));
 $ability_imp = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM ability_impairements WHERE ID_SURVIVOR = $survivor_id"));
-$other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM OTHER WHERE ID_SURVIVOR = $survivor_id"));
+$other = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM other WHERE ID_SURVIVOR = $survivor_id"));
+$insanity = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM insanity WHERE ID_SURVIVOR = $survivor_id"));
 
 ?>
 

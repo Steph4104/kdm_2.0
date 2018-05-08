@@ -1,4 +1,12 @@
       		<div class="panel-body">
+          <div class="form-group " style='margin:0px;padding-left: 15px'>
+      <label for="insanity">Insanity</label>
+<div id='update_insanity'>
+      <input type="text" style='width:5%;' class="form-control update_armor" id="insanity" value=<?php echo($insanity['INSANITY'] >= 0 ?  $insanity['INSANITY'] : 0);?> >
+    <input class=".form-check-inline update_armor" type="checkbox" value='-1' id="box_insanity_1"  <?php echo($insanity['INSANITY'] < 0 ? 'checked' : '');?> >
+<p>Brain. If your insanity is 3+, you are <strong>insane</strong></p>
+    </div>
+  </div>
             	<div class="col-sm-1">
                  <div class="form-group col-md-2 stats">
       <label for="movement">Movement</label>
@@ -85,9 +93,25 @@ $(document).ready(function() {
   var character = <?php echo $survivor_id; ?>;
   var itemID = $(this).attr('id');
 
+  if(itemID == 'insanity' && itemVal == '3'){
+    alert('You are INSANE!');
+  }
+
 if ($(this).is('input:checkbox')){
 
   switch (itemID) {
+    case 'box_insanity_1':
+var ischecked= $(this).is(':checked');
+
+    if(!ischecked){
+          itemVal = 0;
+
+    alert('uncheckd ' + itemVal);
+
+    }
+
+
+      break;
     case 'box_head_1':
 var ischecked= $(this).is(':checked');
 
@@ -201,6 +225,10 @@ $.ajax({
 
 
  switch (itemID) {
+  case 'insanity':
+    case 'box_insanity_1':
+      var section = '#update_insanity';
+      break;
     case 'head':
     case 'box_head_1':
       var section = '#update_head';

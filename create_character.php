@@ -102,4 +102,10 @@ if (!mysqli_query($con, $understanding)) {
      echo "Error: " . $understanding . "<br>" . mysqli_error($con);
 }
 
+$insanity = "INSERT INTO `insanity`(`ID_SURVIVOR`,`INSANITY`) VALUES ('".$id_survivor."','0')";
+
+if (!mysqli_query($con, $insanity)) {
+     echo "Error: " . $insanity . "<br>" . mysqli_error($con);
+}
+
 ?>
