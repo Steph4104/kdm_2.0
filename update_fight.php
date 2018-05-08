@@ -1,7 +1,7 @@
 <?php
 	require_once 'database.php';
 	$con=mysqli_connect($db_host, $db_username, $db_password,$db_name);
-	$survivor_id = 0;
+	$survivor_id = $_POST['id'];
 
 	if($_POST['type'] == 'fighting_art_1' || $_POST['type'] == 'fighting_art_2' || $_POST['type'] == 'fighting_art_3'){
 		switch ($_POST['type']) {
@@ -16,13 +16,14 @@
 				break;
 		}
 		$value = $_POST['value'];
-		$fighting_art = mysqli_query($con, "SELECT id FROM fighting_disroder WHERE ID_SURVIVOR='".$survivor_id."' AND POSITION ='".$position."' AND TYPE ='disorder'");
+		$fighting_art = mysqli_query($con, "SELECT id FROM fighting_disroder WHERE ID_SURVIVOR='".$survivor_id."' AND POSITION ='".$position."' AND TYPE ='fighting'");
 
 		if($fighting_art->num_rows == 0){
 			$sql = "INSERT INTO fighting_disroder (ID_SURVIVOR, TYPE, ID_ACTION,POSITION) VALUES (".$survivor_id.",'fighting', ".$value.", ".$position.")";
 		}else{
-		$sql = "UPDATE fighting_disroder SET ID_ACTION ='".$value."' WHERE ID_SURVIVOR='".$survivor_id."' AND POSITION ='".$position."' AND TYPE ='disorder'";
-		}
+		$sql = "UPDATE fighting_disroder SET ID_ACTION ='".$value."' WHERE ID_SURVIVOR='".$survivor_id."' AND POSITION ='".$position."' AND TYPE ='fighting'";
+	error_log($sql);	
+	}
 
 		if ($con->query($sql) === TRUE) {
 		  error_log('sucess');
