@@ -14,7 +14,7 @@
     $insanity = mysqli_fetch_assoc(mysqli_query($con, "SELECT * FROM insanity WHERE ID_SURVIVOR = $survivor_id"));
 	  echo '<input type="text" style="width:5%;" class="form-control update_armor" id="insanity" value='.($insanity['INSANITY'] >= 0 ?  $insanity['INSANITY'] : 0).' >';
 	  echo '<input class=".form-check-inline update_armor" type="checkbox" value="-1" id="box_insanity_1"  '.($insanity['INSANITY'] <= -1 ? 'checked' : '').' >';
-  
+  echo'<p>Brain. If your insanity is 3+, you are <strong>insane</strong></p>';
   } else if($_POST['type'] == 'head' || $_POST['type'] == 'box_head_1'){
     $value = $_POST['value'];
 	  $sql = "UPDATE armor_stat SET HEAD ='".$value."' WHERE ID_SURVIVOR='".$_POST['id']."'";
